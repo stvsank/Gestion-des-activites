@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% extends './base.html' %}
+<html>
+{% load static %}
+<body style="background-color: #F1F1F1;">
+	{% block content %}
+        <br><br>
+        <!-- Début carousel -->
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                <img src={% static 'image/equipe.jpg' %}>
+
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Solidarité</h1>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                <img src={% static 'image/equipe.jpg' %}>
+
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Solidarité</h1>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                <img src={% static 'image/equipe.jpg' %}>
+
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Solidarité</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <!-- Début carousel -->
+
+        <!-- Début équique -->
+      <div class="container team">
+        <!-- Three columns of text below the carousel -->
+        <h1 class="titre">Equipe</h1>
+        <hr>
+        <div class="row ">
+          <div class="col-lg-4 col-sm-12 col-12">
+            <img src={% static 'image/logo1.PNG' %} alt="" class="profil">
+            <h2> Steve SANKARA</h2>
+            <p>Dicteur Général</p>
+            <p><a class="btn btn-secondary" href="#">(226) 70 50 11 11</a></p>
+          </div>
+          <div class="col-lg-4 col-sm-6 col-12"> 
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv9X3ouKQ82k_KS18-okhCsoaTI8JbyL6JwtHi23LpF0Xes5MyhYpb0w_YHZ41TYRr5dk&usqp=CAU" alt="" class="profil">
+            <h2>Kévin Ouédraogo</h2>
+            <p>Directeur Administratif et Financier</p>
+            <p class="btn btn-secondary survol">(226) 70 50 11 12</p>
+          </div>
+          <div class="col-lg-4 col-sm-6 col-12"> 
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJtPL_-lNqq_qlw76VFjzu6IH4_QMpS5TBkA&usqp=CAU" alt="" class="profil">
+            <h2>John Da</h2>
+            <p>Directeur Technique</p>
+            <p class="btn btn-secondary survol">(226) 70 50 11 13</p>
+          </div>
+          <br>
+          <h2 class="titre">Département Technique</h2>
+          <hr>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-6"> 
+            <img src={% static 'image/perso.png' %} alt="" class="profil1">
+            <h2>Hamed Dani</h2>
+            <p>Technicien</p>
+            <p class="btn btn-secondary survol">(226) 70 50 20 10</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-6"> 
+            <img src={% static 'image/perso.png' %} alt="" class="profil1">
+            <h2>Hamed Barry</h2>
+            <p>Technicien</p>
+            <p class="btn btn-secondary survol">(226) 70 50 20 11</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-6"> 
+            <img src={% static 'image/perso.png' %} alt="" class="profil1">
+            <h2>Hamed Barry</h2>
+            <p>Technicien</p>
+            <p class="btn btn-secondary survol">(226) 70 50 20 12</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-6"> 
+            <img src={% static 'image/perso.png' %} alt="" class="profil1">
+            <h2>Hamed Barry</h2>
+            <p>Technicien</p>
+            <p class="btn btn-secondary survol">(226) 70 50 20 13</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-6"> 
+            <img src={% static 'image/perso.png' %} alt="" class="profil1">
+            <h2>Hamed Barry</h2>
+            <p>Technicien</p>
+            <p class="btn btn-secondary survol">(226) 70 50 20 10</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-6"> 
+            <img src={% static 'image/perso.png' %} alt="" class="profil1">
+            <h2>Hamed Barry</h2>
+            <p>Technicien</p>
+            <p class="btn btn-secondary survol">(226) 70 50 20 11</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-6"> 
+            <img src={% static 'image/perso.png' %} alt="" class="profil1">
+            <h2>Hamed Barry</h2>
+            <p>Technicien</p>
+            <p class="btn btn-secondary survol">(226) 70 50 20 12</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-6"> 
+            <img src={% static 'image/perso.png' %} alt="" class="profil1">
+            <h2>Hamed Barry</h2>
+            <p>Technicien</p>
+            <p class="btn btn-secondary survol">(226) 70 50 20 13</p>
+          </div>
+        </div><!-- /.row -->
+      </div>
+    {% endblock %}
+</body>
