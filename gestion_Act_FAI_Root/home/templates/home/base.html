@@ -4,14 +4,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="{% static 'css/styl.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
 		<title>GestionFAI</title>
 		<!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbars/"> -->
 		{% block lien %}
 		    {% include './lien.html' %}
 		{% endblock %}
 	</head>   
-	    <body style="background-color: #F1F1F1;" class="d-flex flex-column h-100">
+	    <body style="background-color: #F1F1F1;">
 	        {% block navbar %}
 	            {% include './header.html' %}
 	        {% endblock %}

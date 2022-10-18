@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% extends './base.html' %}
+<html lang="en">
+{% load static %}
+<body>
+
+    {% block content %}
+        <br><br><br><br>
+            <div class="container team">
+                <div class="row"></div>
+                    <div class="col ajust"> 
+                        <img src={% static 'image/perso.png' %}  alt="" class="profil2">
+                      <h2>Hamed Barry</h2>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <!-- py-5 : marge -->
+            <div class="album  gris">
+              <div>
+
+                <div class="row g-3" style="margin-left: 3px ;">
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#060452"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Visite de site<span class="badge bleu">1</span></text></svg>
+                      <div class="card-body">
+                        <p class="nomClient"><span class="badge bleu">1</span> M. Zougou</p>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <hr>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#008523"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Installation<span class="badge vert">2</span></text></svg>
+                      <div class="card-body">
+                        <p class="nomClient"><span class="badge vert">1</span> M. Zougou</p>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <img src={% static 'image/pylone.jpg' %}>
+                        <hr>
+                        <p class="nomClient"><span class="badge vert">2</span> M. Koutou</p>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <hr>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="orange"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Visite de site<span class="badge orange">2</span></text></svg>
+                      <div class="card-body">
+                        <p class="nomClient"><span class="badge orange">1</span> M. Zougou</p>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <hr>
+                        <p class="nomClient"><span class="badge orange">2</span> M. Koutou</p>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <hr>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#FF2043"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Retrait<span class="badge rouge">0</span></text></svg>
+                      <div class="card-body">
+                        <hr>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    {% endblock %}>
+
+    {% block footer%}
+    {% endblock %}>
+</body>

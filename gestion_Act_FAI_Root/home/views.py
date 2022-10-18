@@ -36,5 +36,7 @@ def historique(request):
     }
     return render(request, 'home/historique.html', context)
 
+def info_activ_perso(request):
+    return render(request, 'home/info_activite_employe.html')
 
    

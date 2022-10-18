@@ -3,18 +3,50 @@
   width: 75px;
 }
 
+/* Couleur */
 .bg{
   background-color: #060452;
 }
 
-.orange{
+.orange, .btn-warning{
   background-color: #F08D00;
 }
 
-.tirethead{
-  margin-top: 5em;
-  height: 15px;
+.imgDebut{
+  text-align: center;
 }
+
+.gris{
+  background-color: #F1F1F1;
+}
+
+.bleu{
+  margin: 3px;
+  background-color: #060452;
+}
+.vert{
+  margin: 3px;
+  background-color: #008523;
+}
+.orange{
+  margin: 3px;
+  background-color: orange;
+}
+.rouge{
+  margin: 3px;
+  background-color: #FF2043;
+}
+
+
+.team{
+  background-color: #F1F1F1;  
+}
+
+.titre{
+  text-align: center;
+  color: grey;
+}
+/* Fin Couleur */
 
 /*fin entête*/
 
@@ -30,10 +62,6 @@
   bottom: 3rem;
   z-index: 10;
 }
-
-/*.carousel-caption > img{
-  width: 80%;
-} */
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
@@ -71,6 +99,7 @@
     font-size: 3.5rem;
   }
 }
+
   /* fin carousel */
 
 
@@ -78,14 +107,6 @@
 -------------------------------------------------- */
 
 /* Center align the text within the three columns below the carousel */
-.team{
-  background-color: #F1F1F1;  
-}
-
-.titre{
-  text-align: center;
-  color: grey;
-}
 
 .profil{
   width: 130px;
@@ -98,6 +119,12 @@
   height: 120px;
   border-radius: 100% 100% 100% 100%;
   margin-bottom: 10px;
+}
+
+.profil2{
+  width: 90px;
+  height: 90px;
+  border-radius: 100% 100% 100% 100%;
 }
 
 /*.survol:hover {
@@ -124,6 +151,12 @@
 .team .col-lg-4 p {
   margin-right: .75rem;
   margin-left: .75rem;
+}
+
+
+
+.ajust{
+  text-align: center;
 }
 
 
