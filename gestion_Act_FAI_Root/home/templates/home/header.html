@@ -1,7 +1,7 @@
  {% load static %}
  	<!-- Debut Entête -->
 			<div class="orange fixed-top" style="padding: 29px;"><br></div>
-			<nav class="navbar navbar-expand-sm navbar-dark bg fixed-top" aria-label="Third navbar example">
+			<nav class="navbar navbar-expand-lg navbar-dark bg fixed-top" aria-label="Third navbar example">
 		    	<div class="container-fluid">
 		    		<a class="navbar-brand" href="#"><img src={% static 'image/logo.PNG' %} id="logo">
 					</a>
@@ -12,10 +12,10 @@
 		    		<div class="collapse navbar-collapse" id="navbarsExample03">
 		    	    	<ul class="navbar-nav me-auto mb-2 mb-sm-0 ">
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="#">Acceuil</a>
+								<a class="nav-link active" aria-current="page" href="{% url 'index' %}">Acceuil</a>
 		    	      		</li>
 		    	      		<li class="nav-item">
-		    	        		<a class="nav-link" href="historique/">Historique</a>
+		    	        		<a class="nav-link" href="{% url 'historique'%}">Historique</a>
 		    	      		</li>
 		    	      		<li class="nav-item">
 		    	        		<a class="nav-link" href="#">Discussion<span class="badge orange">3</span></a>
