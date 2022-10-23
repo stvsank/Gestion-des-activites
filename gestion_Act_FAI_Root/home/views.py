@@ -1,105 +1,30 @@
 from django.shortcuts import render # this line is added automatically
 from django.http import HttpResponse # pass view information into the browser
+from .models import Employe, Conge
+from datetime import datetime, date
 
 # takes a request, returns a response
 def index(request):
-    users =[
-    {
-        'id' : 1,
-        'first_name' : "John",
-        'last_name' : "Doe",
-        'job' : 'DG',
-        'phone_number' : 70501111,
-        'leave' : False
-    },
-    {
-        'id' : 2,
-        'first_name' : "Kévin",
-        'last_name' : "Ouédraogo",
-        'job' : 'DAF',
-        'phone_number' : 70501112,
-        'leave' : False
-    },
-    {
-        'id' : 3,
-        'first_name' : "Steven",
-        'last_name' : "Da",
-        'job' : 'DT',
-        'phone_number' : 70501113,
-        'leave' : False
-    },
-    {
-        'id' : 4,
-        'first_name' : "Hamed",
-        'last_name' : "Barry",
-        'job' : 'Technicien',
-        'phone_number' : 70601000,
-        'leave' : False
-    },
-    {
-        'id' : 5,
-        'first_name' : "Ali",
-        'last_name' : "Ban",
-        'job' : 'Technicien',
-        'phone_number' : 70601001,
-        'leave' : True
-    },
-    {
-        'id' : 6,
-        'first_name' : "Koffi",
-        'last_name' : "Yan",
-        'job' : 'Technicien',
-        'phone_number' : 70601001,
-        'leave' : False
-    },
-    {
-        'id' : 7,
-        'first_name' : "Omar",
-        'last_name' : "Rafti",
-        'job' : 'Technicien',
-        'phone_number' : 70601001,
-        'leave' : False
-    },
-    {
-        'id' : 8,
-        'first_name' : "Hamed",
-        'last_name' : "Barry",
-        'job' : 'Technicien',
-        'phone_number' : 70601000,
-        'leave' : False
-    },
-    {
-        'id' : 9,
-        'first_name' : "Ali",
-        'last_name' : "Ban",
-        'job' : 'Technicien',
-        'phone_number' : 70601001,
-        'leave' : False
-    },
-    {
-        'id' : 10,
-        'first_name' : "Koffi",
-        'last_name' : "Yan",
-        'job' : 'Technicien',
-        'phone_number' : 70601001,
-        'leave' : False
-    },
-    {
-        'id' : 11,
-        'first_name' : "Omar",
-        'last_name' : "Rafti",
-        'job' : 'Technicien',
-        'phone_number' : 70601001,
-        'leave' : True
-    },
+    users = Employe.objects.all()
 
-    ]
-
-
+###  Détermine si oui ou non un employé est en congé ###
+    for user in users:
+        conge = Conge.objects.filter(employe = user)
+        if conge: 
+            a = len(conge)-1
+            conge = conge[a]
+            debut = datetime.strptime(str(conge.debut), '%Y-%m-%d')
+            fin = datetime.strptime(str(conge.fin), '%Y-%m-%d')
+            if debut < datetime.now() and fin > datetime.now():
+                user.leave = True
+            else:
+                user.leave = False
+###
     context = {
         'users' : users,
         'login' : False
     }
+
     return render(request, 'home/index.html', context)
 
 
@@ -113,98 +38,9 @@ def historique(request):
     return render(request, 'home/historique.html', context)
 
 def infoActEmploy(request,id):
-    users =[
-    {
-        'id' : 1,
-        'first_name' : "John",
-        'last_name' : "Doe",
-        'job' : 'DG',
-        'phone_number' : 70501111,
-        'leave' : False
-    },
-    {
-        'id' : 2,
-        'first_name' : "Kévin",
-        'last_name' : "Ouédraogo",
-        'job' : 'DAF',
-        'phone_number' : 70501112,
-        'leave' : False
-    },
-    {
-        'id' : 3,
-        'first_name' : "Steven",
-        'last_name' : "Da",
-        'job' : 'DT',
-        'phone_number' : 70501113,
-        'leave' : False
-    },
-    {
-        'id' : 4,
-        'first_name' : "Hamed",
-        'last_name' : "Barry",
-        'job' : 'Technicien',
-        'phone_number' : 70601000,
-        'leave' : False
-    },
-    {
-        'id' : 5,
-        'first_name' : "Ali",
-        'last_name' : "Ban",
-        'job' : 'Technicien',
-        'phone_number' : 70601001,
-        'leave' : True
-    },
-    {
-        'id' : 6,
-        'first_name' : "Koffi",
-        'last_name' : "Yan",
-        'job' : 'Technicien',
-        'phone_number' : 70601001,
-        'leave' : False
-    },
-    {
-        'id' : 7,
-        'first_name' : "Omar",
-        'last_name' : "Rafti",
-        'job' : 'Technicien',
-        'phone_number' : 70601001,
-        'leave' : False
-    },
-    {
-        'id' : 8,
-        'first_name' : "Hamed",
-        'last_name' : "Barry",
-        'job' : 'Technicien',
-        'phone_number' : 70601000,
-        'leave' : False
-    },
-    {
-        'id' : 9,
-        'first_name' : "Ali",
-        'last_name' : "Ban",
-        'job' : 'Technicien',
-        'phone_number' : 70601001,
-        'leave' : False
-    },
-    {
-        'id' : 10,
-        'first_name' : "Koffi",
-        'last_name' : "Yan",
-        'job' : 'Technicien',
-        'phone_number' : 70601001,
-        'leave' : False
-    },
-    {
-        'id' : 11,
-        'first_name' : "Omar",
-        'last_name' : "Rafti",
-        'job' : 'Technicien',
-        'phone_number' : 70601001,
-        'leave' : True
-    },
-    ]
+    users = Employe.objects.all()
     for user in users:
-        if user['id'] == id:
+        if user.pk == id:
             context = {
                 'user' : user,
                 'login' : False

@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'gestion_Act_FAI.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gestion_fai',
+        'NAME': 'fai',
         'USER': 'postgres',
         'PASSWORD': '   ',
         'HOST': '127.0.0.1',

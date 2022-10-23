@@ -60,7 +60,7 @@
         <!-- Three columns of text below the carousel -->
         <h1 class="titre">Equipe</h1>
         <hr>
-        <div class="row ">
+        <div class="row " ><!-- style="justify-content: center;" -->
         {% for user in users %}
           {% if user.job == 'DG' %}
           <div class="col-lg-4 col-sm-12 col-12">
@@ -78,6 +78,8 @@
             {% endif %}
           </div>
           {% endif %}
+        {% endfor %}
+        {% for user in users %}
           {% if user.job == 'DAF' %}
           <div class="col-lg-4 col-sm-6 col-12"> 
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv9X3ouKQ82k_KS18-okhCsoaTI8JbyL6JwtHi23LpF0Xes5MyhYpb0w_YHZ41TYRr5dk&usqp=CAU" alt="" class="profil">
@@ -115,6 +117,26 @@
           <h2 id="title">Département Technique</h2>
           <hr>
         {% for user in users %}
+          {% if user.job == 'Ingénieur' %}
+          <div class="col-lg-3 col-md-4 col-sm-6 col-6"> 
+            <a href="info/{{user.id}}">
+              <img src={% static 'image/perso.png' %} alt="" class="profil1">
+            </a>
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <p>Ingénieur</p>
+            {% if user.leave == False %}
+            <div class="nombre">
+              <p class="bleu whiteT number">(226) {{ user.phone_number}}</a></p>
+            </div>
+            {% else %}
+            <div class="nombre">
+              <p class="orange number">(226) {{ user.phone_number}}</a></p>
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+        {% endfor %}  
+        {% for user in users %}
           {% if user.job == 'Technicien' %}
           <div class="col-lg-3 col-md-4 col-sm-6 col-6"> 
             <a href="info/{{user.id}}">
@@ -134,7 +156,30 @@
           </div>
           {% endif %}
         {% endfor %}  
-        </div><!-- /.row -->
+        <br>
+<!--         <h2 id="title">Département Commerciale</h2>
+        <hr>
+        {% for user in users %}
+          {% if user.job == 'Commercial' %}
+          <div class="col-lg-3 col-md-4 col-sm-6 col-6"> 
+            <a href="info/{{user.id}}">
+              <img src={% static 'image/perso.png' %} alt="" class="profil1">
+            </a>
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <p>Commercial</p>
+            {% if user.leave == False %}
+            <div class="nombre">
+              <p class="bleu whiteT number">(226) {{ user.phone_number}}</a></p>
+            </div>
+            {% else %}
+            <div class="nombre">
+              <p class="orange number">(226) {{ user.phone_number}}</a></p>
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+        {% endfor %}  
+ -->    </div><!-- /.row -->
       </div>
     {% endblock %}
 </body>
