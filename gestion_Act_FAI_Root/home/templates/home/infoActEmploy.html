@@ -1,9 +1,5 @@
-<!DOCTYPE html>
 {% extends './base.html' %}
-<html lang="en">
 {% load static %}
-<body>
-
     {% block content %}
         <br><br><br><br>
             <div class="container team">
@@ -27,7 +23,7 @@
                         <p class="nomClient"><span class="badge bleu">1</span> M. Zougou</p>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
                         <hr>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+                        <a href="{% url 'historique'%}#v"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
                       </div>
                     </div>
                   </div>
@@ -42,7 +38,7 @@
                         <p class="nomClient"><span class="badge vert">2</span> M. Koutou</p>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
                         <hr>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+                        <a href="{% url 'historique'%}#i"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
                       </div>
                     </div>
                   </div>
@@ -56,7 +52,7 @@
                         <p class="nomClient"><span class="badge orange">2</span> M. Koutou</p>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
                         <hr>
-                        <a href="{% url 'historique'%}#a"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
+                        <a href="{% url 'historique'%}#d"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
                       </div>
                     </div>
                   </div>
@@ -65,7 +61,7 @@
                       <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Retraits<span class="badge rouge">0</span></text></svg>
                       <div class="card-body">
                         <hr>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+                        <a href="{% url 'historique'%}#r"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
                       </div>
                     </div>
                   </div>
@@ -73,7 +69,3 @@
               </div>
             </div>
     {% endblock %}>
-
-    {% block footer%}
-    {% endblock %}>
-</body>

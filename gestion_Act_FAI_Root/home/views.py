@@ -50,5 +50,11 @@ def infoActEmploy(request,id):
 def clients(request,id = 0):
     return render(request,'home/clients.html')
 
+def technique(request):
+    return render(request,'home/technique.html')
+
+def statistique(request):
+    return render(request,'home/statistique.html')
+
 
    

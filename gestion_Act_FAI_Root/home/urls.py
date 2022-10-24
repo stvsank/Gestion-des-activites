@@ -8,4 +8,6 @@ urlpatterns = [
     path('historique/', views.historique, name='historique'),
     path('info/<int:id>', views.infoActEmploy, name='infoActEmploy'),
     path('client', views.clients, name='clients'),
+    path('technique', views.technique, name='technique'),
+    path('statistique', views.statistique, name='statistique'),
 ]
