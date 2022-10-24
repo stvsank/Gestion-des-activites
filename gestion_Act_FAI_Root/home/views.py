@@ -47,4 +47,8 @@ def infoActEmploy(request,id):
             }
     return render(request, 'home/infoActEmploy.html',context)
 
+def clients(request,id = 0):
+    return render(request,'home/clients.html')
+
+
    

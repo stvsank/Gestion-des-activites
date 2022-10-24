@@ -7,4 +7,5 @@ urlpatterns = [
     path('user/', views.userSpace, name='userSpace'),
     path('historique/', views.historique, name='historique'),
     path('info/<int:id>', views.infoActEmploy, name='infoActEmploy'),
+    path('client', views.clients, name='clients'),
 ]

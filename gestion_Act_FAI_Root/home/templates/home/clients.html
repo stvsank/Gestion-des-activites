@@ -1,0 +1,66 @@
+{% extends './base.html' %}
+{% load static %}
+{% block body %}
+{% endblock %}
+{% block content %}
+ <style>
+
+   </style>
+   <br>
+	<div class="voir" style="margin-right: 15px;margin-left: 15px;">
+   	<img src={% static 'image/logo.PNG' %} id="logo">
+	<table class="table table-striped">
+	  <thead class="thead-light">
+	    <tr>
+	      <th scope="col" class=" centre">N°</th>
+	      <th scope="col" class="centre">Clients</th>
+	      <th scope="col" class="centre">Visites</th>
+	      <th scope="col" class="centre">Installations</th>
+	      <th scope="col" class="centre">Dépannages</th>
+	      <th scope="col" class="centre">Retraits</th>
+	      <th scope="col" class="centre">Routeurs</th>
+	      <th scope="col" class="centre">Antennes</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td class="centre">1</td>
+	      <td class="centre">Mark Tanga</td>
+	      <td class="centre">Sank SANOU</td>
+	      <td class="centre">Sankara Steve <br><br> Saakjbi jbivjhjh</td>
+	      <td class="centre">Hamed Barry<br><br> Saakjbi jbivjhjh <hr>Sank SANOU</td>
+	      <td class="centre">Steve Sou<br><br> Saakjbi jbivjhjh </td>
+	      <td class="centre">8564165418964</td>
+	      <td class="centre">4861531681535br</td>
+	    </tr>
+	    <tr>
+	      <td class="centre">2</td>
+	      <td class="centre">Mark Tanga</td>
+	      <td class="centre">Sank SANOU</td>
+	      <td class="centre">Sankara Steve <br><br> Saakjbi jbivjhjh</td>
+	      <td class="centre">Sank SANOU<hr>Hamed Barry<br><br> Saakjbi jbivjhjh <hr>Sank SANOU</td>
+	      <td class="centre">Steve Sou<br><br> Saakjbi jbivjhjh </td>
+	      <td class="centre">8564165418964</td>
+	      <td class="centre">4861531681535br</td>
+	    </tr>
+	    <tr>
+	      <td class="centre">3</td>
+	      <td class="centre">Mark Tanga</td>
+	      <td class="centre">Sank SANOU</td>
+	      <td class="centre">Sankara Steve <br><br> Saakjbi jbivjhjh</td>
+	      <td class="centre">Sank SANOU</td>
+	      <td class="centre">Steve Sou<br><br> Saakjbi jbivjhjh </td>
+	      <td class="centre">8564165418964</td>
+	      <td class="centre">4861531681535br</td>
+	    </tr>
+	 </tbody>
+	</table>
+</div>
+<!-- 	<button onclick="display()">Click to Print</button>
+   <script>
+      function display() {
+         window.print();
+      }
+   </script> -->
+{% include './impression.html'%}
+{% endblock %}

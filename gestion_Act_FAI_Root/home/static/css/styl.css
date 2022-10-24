@@ -41,8 +41,6 @@
   color: white;
 }
 
-
-
 .team{
   background-color: #F1F1F1;  
 }
@@ -131,9 +129,21 @@
   border-radius: 100% 100% 100% 100%;
 }
 
+.boutton{
+  border-radius: 5px 5px 5px 5px;
+  float: right;
+  margin-right: 20px;
+}
+
 /*.survol:hover {
   cursor: text;
 }*/
+
+/*Centrer les élements d'un tableau*/
+.centre{
+  text-align: center;
+}
+
 
 .team .col-lg-4 {
   margin-bottom: 1.5rem;
@@ -175,4 +185,17 @@
   background-color: black;
   color: white;
   text-align: center;
+}
+
+/*Impression*/
+@media only print {
+   body {
+      visibility: hidden;
+   }
+   .cacher{
+      visibility: hidden;           
+   }
+   .voir {
+      visibility: visible;
+   }
 }

@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
 	{% load static %}
+	{% load bootstrap5 %}
+	{% bootstrap_css %}
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'css/styl.css' %}">
 		<title>GestionFAI</title>
-		<!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbars/"> -->
-		{% block lien %}
-		    {% include './lien.html' %}
+
+	</head>
+	{% block body %}
+	<body style="background-color: #F1F1F1;">
+	{% endblock %}
+	    {% block navbar %}
+			{% include './header.html' %}
+	    {% endblock %}
+
+	    {% block content %}
+	    {% endblock %}
+
+		{% block footer%}
+	        {% include './footer.html' %}
 		{% endblock %}
-	</head>   
-	    <body style="background-color: #F1F1F1;">
-	        {% block navbar %}
-	            {% include './header.html' %}
-	        {% endblock %}
-
-	        {% block content %}
-	        {% endblock %}
-
-	        {% block footer%}
-	        	{% include './footer.html' %}
-	        {% endblock %}
-	    </body>
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-	    <script type="text/javascript" src={% static 'js/pageactive.js' %}></script>
+	</body>
+	{% bootstrap_javascript %}
+	<script type="text/javascript" src={% static 'js/pageactive.js' %}></script>
 </html>

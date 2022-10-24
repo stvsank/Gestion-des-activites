@@ -5,7 +5,7 @@
 		    	<div class="container-fluid">
 		    		<a class="navbar-brand" href="#"><img src={% static 'image/logo.PNG' %} id="logo">
 					</a>
-		    		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+		    		<button class="navbar-toggler cacher" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
 		    			<span class="navbar-toggler-icon"></span>
 						</button>
 
@@ -18,7 +18,7 @@
 		    	        		<a class="nav-link" href="{% url 'historique'%}">Historique</a>
 		    	      		</li>
 		    	      		<li class="nav-item">
-		    	        		<a class="nav-link" href="#">Discussion<span class="badge orange">3</span></a>
+		    	        		<a class="nav-link" href="{% url 'clients'%}">Clients</a>
 		    	      		</li>
 						</ul>
 						<form>
@@ -27,5 +27,4 @@
 					</div>
 				</div>
 		  	</nav>
-		 	
 	<!-- Fin Entête -->
