@@ -7,6 +7,10 @@ name = "pypi"
 whitenoise = "*"
 gunicorn = "*"
 django = "*"
+psycopg2 = "==2.9.4"
+tzdata = "*"
+django-bootstrap-v5 = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
