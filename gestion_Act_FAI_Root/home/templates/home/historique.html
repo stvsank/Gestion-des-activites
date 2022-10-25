@@ -10,40 +10,32 @@
             <div class="row g-3" style="margin-left: 3px ;">
               <div id="v">
                 <div class="card shadow-sm">
-                  <svg class="bd-placeholder-img card-img-top" width="100%" height="50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#060452"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Visites de site<span class="badge bleu">3</span></text></svg>
+                  <svg class="bd-placeholder-img card-img-top" width="100%" height="50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#060452"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Visites de site<span class="badge bleu">{{nbr_visite}}</span></text></svg>
                   <div class="card-body">
                     <table class="table table-hover ">
                       <thead>
                         <tr>
                           <th scope="col" class="col-1 centre">Heures</th>
                           <th scope="col" class="col-2 centre">Clients</th>
-                          <th scope="col" class="col-1 centre">Liens</th>
+                          <th scope="col" class="col-1 centre">Possible</th>
                           <th scope="col" class="col-2 centre">Intervenants</th>
                           <th scope="col" class="centre">Commentaires</th>
                         </tr>
                       </thead>
                       <tbody>
+                      {% for visite in visites %}
                         <tr>
-                          <th class="centre">8h 40mn</th>
-                          <td class="centre">Mark Tanga</td>
-                          <td class="centre">Fonctionnel</td>
-                          <td class="centre">Sankara Steve <br><br> Saakjbi jbivjhjh</td>
-                          <td>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as</td>
+                          <th class="centre">{{ visite.heure }}</th>
+                          <td class="centre">{{ visite.client.last_name }} {{ visite.client.first_name }}</td>
+                          <td class="centre">{{ visite.possible }}</td>
+                          <td class="centre">
+                            {% for employ in visite.employe.all %} 
+                              {{ employ.last_name}} {{ employ.first_name }} <br><br>
+                            {%  endfor %}
+                          </td>
+                          <td>{{ visite.comment }}</td>
                         </tr>
-                        <tr>
-                          <th class="centre">10h 30mn</th>
-                          <td class="centre">Kaled Brou</td>
-                          <td class="centre">Fonctionnel</td>
-                          <td class="centre">Sarana Sou <br><br> Dantir Sana</td>
-                          <td>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with .</td>
-                        </tr>                        
-                        <tr>
-                          <th class="centre">14h 30mn</th>
-                          <td class="centre">Kaled Brou</td>
-                          <td class="centre">Fonctionnel</td>
-                          <td class="centre">Sarana Sou <br><br> Dantir Sana</td>
-                          <td>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with .</td>
-                        </tr>
+                      {% endfor %}
                       </tbody>
                     </table>
                   </div>
@@ -51,40 +43,98 @@
               </div>
               <div id="i">
                 <div class="card shadow-sm">
-                  <svg class="bd-placeholder-img card-img-top" width="100%" height="50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#008523"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Installations<span class="badge vert">4</span></text></svg>
+                  <svg class="bd-placeholder-img card-img-top" width="100%" height="50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#008523"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Installations<span class="badge vert">{{nbr_installation}} </span></text></svg>
                   <div class="card-body">
-                    <p class="nomClient"><span class="badge vert">1</span> M. Zougou</p>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <hr>
-                    <p class="nomClient"><span class="badge vert">2</span> M. Koutou</p>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <hr>
+                    <table class="table table-hover ">
+                      <thead>
+                        <tr>
+                          <th scope="col" class="col-1 centre">Heures</th>
+                          <th scope="col" class="col-2 centre">Clients</th>
+                          <th scope="col" class="col-1 centre">Fonctionnels</th>
+                          <th scope="col" class="col-2 centre">Intervenants</th>
+                          <th scope="col" class="centre">Commentaires</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for installation in installations %}
+                        <tr>
+                          <th class="centre">{{ installation.heure }}</th>
+                          <td class="centre">{{ installation.client.last_name }} {{ installation.client.first_name }}</td>
+                          <td class="centre">{{ installation.etat }}</td>
+                          <td class="centre">
+                            {% for employe in installation.employes %} 
+                              {{ employe.last_name}} {{ employe.first_name }} <br><br>
+                            {%  endfor %}
+                          </td>
+                          <td>{{ installation.comment }}</td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
               <div id="d">
                 <div class="card shadow-sm" >
-                  <svg class="bd-placeholder-img card-img-top" width="100%" height="50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="orange"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Dépannages<span class="badge orange">3</span></text></svg>
+                  <svg class="bd-placeholder-img card-img-top" width="100%" height="50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="orange"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Dépannages<span class="badge orange">{{nbr_depannage}} </span></text></svg>
                   <div class="card-body">
-                    <p class="nomClient"><span class="badge orange">1</span> M. Zougou</p>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <hr>
-                    <p class="nomClient"><span class="badge orange">2</span> M. Koutou</p>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <hr>
-                    <p class="nomClient"><span class="badge orange">3</span> Mme. Tuliana</p>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <hr>
+                    <table class="table table-hover ">
+                      <thead>
+                        <tr>
+                          <th scope="col" class="col-1 centre">Heures</th>
+                          <th scope="col" class="col-2 centre">Clients</th>
+                          <th scope="col" class="col-1 centre">Fonctionnels</th>
+                          <th scope="col" class="col-2 centre">Intervenants</th>
+                          <th scope="col" class="centre">Commentaires</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for depannage in depannages %}
+                        <tr>
+                          <th class="centre">{{ depannage.heure }}</th>
+                          <td class="centre">{{ depannage.client.last_name }} {{ depannage.client.first_name }}</td>
+                          <td class="centre">{{ depannage.etat }}</td>
+                          <td class="centre">
+                            {% for employe in depannage.employes %} 
+                              {{ employe.last_name}} {{ employe.first_name }} <br><br>
+                            {%  endfor %}
+                          </td>
+                          <td>{{ depannage.comment }}</td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
               <div id="r">
                 <div class="card shadow-sm">
-                  <svg class="bd-placeholder-img card-img-top" width="100%" height="50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Retraits<span class="badge rouge">1</span></text></svg>
+                  <svg class="bd-placeholder-img card-img-top" width="100%" height="50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Retraits<span class="badge rouge">{{nbr_retrait}}</span></text></svg>
                   <div class="card-body">
-                    <p class="nomClient"><span class="badge rouge">1</span> M. Zougou</p>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <hr>
+                    <table class="table table-hover ">
+                      <thead>
+                        <tr>
+                          <th scope="col" class="col-1 centre">Heures</th>
+                          <th scope="col" class="col-2 centre">Clients</th>
+                          <th scope="col" class="col-2 centre">Intervenants</th>
+                          <th scope="col" class="centre">Commentaires</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for retrait in retraits %}
+                        <tr>
+                          <th class="centre">{{ retrait.heure }}</th>
+                          <td class="centre">{{ retrait.client.last_name }} {{ retrait.client.first_name }}</td>
+                          <td class="centre">
+                            {% for employe in retrait.employes %} 
+                              {{ employe.last_name}} {{ employe.first_name }} <br><br>
+                            {%  endfor %}
+                          </td>
+                          <td>{{ retrait.comment }}</td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>

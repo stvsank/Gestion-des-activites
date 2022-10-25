@@ -12,7 +12,7 @@ class Employe(models.Model):
     ]
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=40)
-    job = models.CharField(max_length=40,choices=choix,default='Technicien')
+    job = models.CharField(max_length=20,choices=choix,default='Technicien')
     phone_number = models.IntegerField()
     leave = models.BooleanField(default=False)
 
@@ -40,38 +40,71 @@ class Conge(models.Model):
 # class ImageMateriel(Image):
 #     pass
 
+class Client(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=40)
+    phone_number = models.IntegerField()
 
-# # activitées
-# class Visite(models.Model):
-#     date : models.DateField(auto_now=True)
-#     possible = models.BooleanField(default=True)
-#     comment : models.CharField(max_length=250)
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
+
+# activitées
+choix = [
+    ('oui','Oui'),
+    ('non','Non'),
+]
+class Visite(models.Model):
+    date = models.DateField(auto_now_add=True)
+    heure = models.TimeField(auto_now_add=True)
+    possible = models.CharField(max_length=4,choices=choix,default="oui")
+    comment = models.TextField(max_length=250)
+    employe = models.ManyToManyField(Employe, blank=True)
+    client = models.OneToOneField(Client,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.date} {self.heure} {self.client} {self.employe}'
     
 
-# class Installation(models.Model):
-#     date : models.DateField(auto_now=True)
-#     comment : models.CharField(max_length=250)
+class Installation(models.Model):
+    date = models.DateField(auto_now_add=True)
+    heure = models.TimeField(auto_now_add=True)
+    comment = models.TextField(max_length=250)
+    etat = models.CharField(max_length=4,choices=choix, default="oui")
+    employe = models.ManyToManyField(Employe, blank=True)
+    client = models.OneToOneField(Client,on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.date} {self.heure} {self.client}'
 
-# class Depannage(models.Model):
-#     date : models.DateField(auto_now=True)
-#     comment : models.CharField(max_length=250)
-#     etat_lien : models.BooleanField(default=True)
+        
+class Depannage(models.Model):
+    date = models.DateField(auto_now_add=True)
+    heure = models.TimeField(auto_now_add=True)
+    comment = models.TextField(max_length=250)
+    etat = models.CharField(max_length=4,choices=choix, default="oui")
+    employe = models.ManyToManyField(Employe, blank=True)
+    client = models.ForeignKey(Client,on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.date} {self.heure} {self.client}'
 
-# class Retrait(models.Model):
-#     date : models.DateField(auto_now=True)
-#     comment : models.CharField(max_length=250)
+ 
+class Retrait(models.Model):
+    date = models.DateField(auto_now_add=True)
+    heure = models.TimeField(auto_now_add=True)
+    comment = models.TextField(max_length=250)
+    employe = models.ManyToManyField(Employe, blank=True)
+    client = models.OneToOneField(Client,on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.date} {self.heure} {self.client}'
+
+ 
 
 # class Caracteristique(models.Model):
 #     imageCaracteristique = models.ManyToManyField(ImageCaractéristique, blank=True)
 #     imageMateriel = models.ManyToManyField(ImageMateriel, blank=True)
         
-# class Client(models.Model):
-#     first_name = models.CharField(max_length=30)
-#     last_name = models.CharField(max_length=40)
-#     phone_number = models.IntegerField()
 
 
 # class Device(models.Model):
@@ -85,17 +118,3 @@ class Conge(models.Model):
 #     # coordonnee = 
 #     comment = models.CharField(max_length=250)
 
-
-
-
-
-# class Post(models.Model):
-#     title = models.CharField(max_length=100)
-#     text = models.TextField()
-#     category = models.CharField(max_length=50)
-#     released_date = models.DateField(default = datetime.now())
-#     author = models.ForeignKey(Person, on_delete=models.CASCADE)
-#     # If you delete a person, his posts will be also deleted
-
-#     def __str__(self):
-#         return f'{self.title}'
