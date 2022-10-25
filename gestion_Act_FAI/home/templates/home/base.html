@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	{% load static %}
+	{% load bootstrap5 %}
+	{% bootstrap_css %}
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{% static 'css/styl.css' %}">
+		<title>GestionFAI</title>
+
+	</head>
+	{% block body %}
+	<body style="background-color: #F1F1F1;">
+	{% endblock %}
+	    {% block navbar %}
+			{% include './header.html' %}
+	    {% endblock %}
+
+	    {% block content %}
+	    {% endblock %}
+
+		{% block footer%}
+	        {% include './footer.html' %}
+		{% endblock %}
+	</body>
+	{% bootstrap_javascript %}
+	<script type="text/javascript" src={% static 'js/pageactive.js' %}></script>
+</html>

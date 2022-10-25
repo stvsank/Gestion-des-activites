@@ -1,0 +1,106 @@
+{% extends './base.html' %}
+{% load static %}
+{% block body %}
+{% endblock %}
+{% block content %}
+ <style>
+
+   </style>
+   <br>
+	<div class="voir" style="margin-right: 15px;margin-left: 15px;">
+   	<img src={% static 'image/logo.PNG' %} id="logo">
+		<table class="table table-striped">
+		  <thead class="thead-light">
+		    <tr>
+	      <th scope="col" class="centre">N°</th>
+	      <th scope="col" class="centre">Noms</th>
+	      <th scope="col" class="centre">Prénoms</th>
+	      <th scope="col" class="centre">Visites</th>
+	      <th scope="col" class="centre">Dépanné/Installations</th>
+	      <th scope="col" class="centre">Dépannages</th>
+	      <th scope="col" class="centre">Retraits</th>
+	      <th scope="col" class="centre">Nombre de jour de congé pris</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td class="centre">1</td>
+		      <td class="centre">Sank</td>
+		      <td class="centre">SANOU</td>
+		      <td class="centre">20</td>
+		      <td class="centre">10/30</td>
+		      <td class="centre">25</td>
+		      <td class="centre">5</td>
+		      <td class="centre">30</td>
+		    </tr>
+		    <tr>
+		      <td class="centre">2</td>
+		      <td class="centre">Sank</td>
+		      <td class="centre">SANOU</td>
+		      <td class="centre">20</td>
+		      <td class="centre">10/30</td>
+		      <td class="centre">25</td>
+		      <td class="centre">5</td>
+		      <td class="centre">10</td>
+		    </tr>
+		    <tr>
+		      <td class="centre">3</td>
+		      <td class="centre">Sank</td>
+		      <td class="centre">SANOU</td>
+		      <td class="centre">20</td>
+		      <td class="centre">10/30</td>
+		      <td class="centre">25</td>
+		      <td class="centre">5</td>		    
+		      <td class="centre">0</td>		    
+		   </tr>
+		    <tr>
+		      <td class="centre">4</td>
+		      <td class="centre">Sank</td>
+		      <td class="centre">SANOU</td>
+		      <td class="centre">20</td>
+		      <td class="centre">10/30</td>
+		      <td class="centre">25</td>
+		      <td class="centre">5</td>		    
+		      <td class="centre">0</td>		    
+		   </tr>
+		    <tr>
+		      <td class="centre">5</td>
+		      <td class="centre">Sank</td>
+		      <td class="centre">SANOU</td>
+		      <td class="centre">20</td>
+		      <td class="centre">10/30</td>
+		      <td class="centre">25</td>
+		      <td class="centre">5</td>		    
+		      <td class="centre">0</td>		    
+		   </tr>
+		    <tr>
+		      <td class="centre">6</td>
+		      <td class="centre">Sank</td>
+		      <td class="centre">SANOU</td>
+		      <td class="centre">20</td>
+		      <td class="centre">10/30</td>
+		      <td class="centre">25</td>
+		      <td class="centre">5</td>		    
+		      <td class="centre">0</td>		    
+		   </tr>
+		    <tr>
+		      <td class="centre">7</td>
+		      <td class="centre">Sank</td>
+		      <td class="centre">SANOU</td>
+		      <td class="centre">20</td>
+		      <td class="centre">10/30</td>
+		      <td class="centre">25</td>
+		      <td class="centre">5</td>		    
+		      <td class="centre">0</td>		    
+		   </tr>
+		 </tbody>
+		</table>
+</div>
+<!-- 	<button onclick="display()">Click to Print</button>
+   <script>
+      function display() {
+         window.print();
+      }
+   </script> -->
+{% include './impression.html'%}
+{% endblock %}
