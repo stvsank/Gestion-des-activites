@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'faigestion.herokuapp.com'
+    'faigestionn.herokuapp.com'
 ]
 
 
