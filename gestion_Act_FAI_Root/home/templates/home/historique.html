@@ -62,7 +62,7 @@
                           <td class="centre">{{ installation.client.last_name }} {{ installation.client.first_name }}</td>
                           <td class="centre">{{ installation.etat }}</td>
                           <td class="centre">
-                            {% for employe in installation.employes %} 
+                            {% for employe in installation.employe.all %} 
                               {{ employe.last_name}} {{ employe.first_name }} <br><br>
                             {%  endfor %}
                           </td>
@@ -95,7 +95,7 @@
                           <td class="centre">{{ depannage.client.last_name }} {{ depannage.client.first_name }}</td>
                           <td class="centre">{{ depannage.etat }}</td>
                           <td class="centre">
-                            {% for employe in depannage.employes %} 
+                            {% for employe in depannage.employe.all %} 
                               {{ employe.last_name}} {{ employe.first_name }} <br><br>
                             {%  endfor %}
                           </td>
@@ -126,7 +126,7 @@
                           <th class="centre">{{ retrait.heure }}</th>
                           <td class="centre">{{ retrait.client.last_name }} {{ retrait.client.first_name }}</td>
                           <td class="centre">
-                            {% for employe in retrait.employes %} 
+                            {% for employe in retrait.employe.all %} 
                               {{ employe.last_name}} {{ employe.first_name }} <br><br>
                             {%  endfor %}
                           </td>
