@@ -7,13 +7,14 @@
 
    </style>
    <br>
-	<div class="voir" style="margin-right: 15px;margin-left: 15px;">
+	<div class="voir" style="margin-right: 15px; margin-left: 15px;">
    	<img src={% static 'image/logo.PNG' %} id="logo">
 		<table class="table table-striped">
 		  <thead class="thead-light">
 		    <tr>
 		      <th scope="col" class=" centre">N°</th>
 		      <th scope="col" class="centre">Clients</th>
+		      <th scope="col" class="centre">Localisation</th>
 		      <th scope="col" class="centre">Visites</th>
 		      <th scope="col" class="centre">Installations</th>
 		      <th scope="col" class="centre">Dépannages</th>
@@ -26,6 +27,7 @@
 		    <tr>
 		      <td class="centre">1</td>
 		      <td class="centre">Mark Tanga</td>
+		      <td class="centre">cordonnée <hr> non loin de la pharmacie Abby</td>
 		      <td class="centre">Sank SANOU</td>
 		      <td class="centre">Sankara Steve <br><br> Saakjbi jbivjhjh</td>
 		      <td class="centre">Hamed Barry<br><br> Saakjbi jbivjhjh <hr>Sank SANOU</td>
@@ -36,6 +38,7 @@
 		    <tr>
 		      <td class="centre">2</td>
 		      <td class="centre">Mark Tanga</td>
+		      <td class="centre">cordonnée <hr> non loin de la pharmacie Abby</td>
 		      <td class="centre">Sank SANOU</td>
 		      <td class="centre">Sankara Steve <br><br> Saakjbi jbivjhjh</td>
 		      <td class="centre">Sank SANOU<hr>Hamed Barry<br><br> Saakjbi jbivjhjh <hr>Sank SANOU</td>
@@ -46,6 +49,7 @@
 		    <tr>
 		      <td class="centre">3</td>
 		      <td class="centre">Mark Tanga</td>
+		      <td class="centre">cordonnée <hr> non loin de la pharmacie Abby</td>
 		      <td class="centre">Sank SANOU</td>
 		      <td class="centre">Sankara Steve <br><br> Saakjbi jbivjhjh</td>
 		      <td class="centre">Sank SANOU</td>
@@ -56,11 +60,5 @@
 		 </tbody>
 		</table>
 </div>
-<!-- 	<button onclick="display()">Click to Print</button>
-   <script>
-      function display() {
-         window.print();
-      }
-   </script> -->
 {% include './impression.html'%}
 {% endblock %}

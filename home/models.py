@@ -93,6 +93,7 @@ class Retrait(models.Model):
     date = models.DateField(auto_now_add=True)
     heure = models.TimeField(auto_now_add=True)
     comment = models.TextField(max_length=250)
+    reste = models.CharField(max_length=4,choices=choix, default="non")
     employe = models.ManyToManyField(Employe, blank=True)
     client = models.OneToOneField(Client,on_delete=models.CASCADE)
 

@@ -26,11 +26,11 @@
                       {% for visite in visites %}
                         <tr>
                           <th class="centre">{{ visite.heure }}</th>
-                          <td class="centre">{{ visite.client.last_name }} {{ visite.client.first_name }}</td>
+                          <td class="centre">{{ visite.client.first_name }} {{ visite.client.last_name }}</td>
                           <td class="centre">{{ visite.possible }}</td>
                           <td class="centre">
-                            {% for employ in visite.employe.all %} 
-                              {{ employ.last_name}} {{ employ.first_name }} <br><br>
+                            {% for employe in visite.employe.all %} 
+                              {{ employe.first_name }} {{ employe.last_name}} <br><br>
                             {%  endfor %}
                           </td>
                           <td>{{ visite.comment }}</td>
@@ -59,11 +59,11 @@
                       {% for installation in installations %}
                         <tr>
                           <th class="centre">{{ installation.heure }}</th>
-                          <td class="centre">{{ installation.client.last_name }} {{ installation.client.first_name }}</td>
+                          <td class="centre">{{ installation.client.first_name }} {{ installation.client.last_name }}</td>
                           <td class="centre">{{ installation.etat }}</td>
                           <td class="centre">
                             {% for employe in installation.employe.all %} 
-                              {{ employe.last_name}} {{ employe.first_name }} <br><br>
+                              {{ employe.first_name }} {{ employe.last_name}}<br><br>
                             {%  endfor %}
                           </td>
                           <td>{{ installation.comment }}</td>
@@ -92,11 +92,11 @@
                       {% for depannage in depannages %}
                         <tr>
                           <th class="centre">{{ depannage.heure }}</th>
-                          <td class="centre">{{ depannage.client.last_name }} {{ depannage.client.first_name }}</td>
+                          <td class="centre">{{ depannage.client.first_name}} {{ depannage.client.last_name}}</td>
                           <td class="centre">{{ depannage.etat }}</td>
                           <td class="centre">
                             {% for employe in depannage.employe.all %} 
-                              {{ employe.last_name}} {{ employe.first_name }} <br><br>
+                              {{ employe.first_name }} {{ employe.last_name}} <br><br>
                             {%  endfor %}
                           </td>
                           <td>{{ depannage.comment }}</td>
@@ -116,6 +116,7 @@
                         <tr>
                           <th scope="col" class="col-1 centre">Heures</th>
                           <th scope="col" class="col-2 centre">Clients</th>
+                          <th scope="col" class="col-1 centre">Reste</th>
                           <th scope="col" class="col-2 centre">Intervenants</th>
                           <th scope="col" class="centre">Commentaires</th>
                         </tr>
@@ -124,10 +125,11 @@
                       {% for retrait in retraits %}
                         <tr>
                           <th class="centre">{{ retrait.heure }}</th>
-                          <td class="centre">{{ retrait.client.last_name }} {{ retrait.client.first_name }}</td>
+                          <td class="centre">{{ retrait.client.first_name }} {{ retrait.client.last_name }}</td>
+                          <td class="centre">{{ retrait.reste }}</td>
                           <td class="centre">
                             {% for employe in retrait.employe.all %} 
-                              {{ employe.last_name}} {{ employe.first_name }} <br><br>
+                              {{ employe.first_name }} {{ employe.last_name}} <br><br>
                             {%  endfor %}
                           </td>
                           <td>{{ retrait.comment }}</td>

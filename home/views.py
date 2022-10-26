@@ -1,6 +1,6 @@
 from django.shortcuts import render # this line is added automatically
 from django.http import HttpResponse # pass view information into the browser
-from .models import Employe, Conge, Visite
+from .models import Employe, Conge, Visite, Installation, Depannage, Retrait
 from datetime import datetime, date
 
 # takes a request, returns a response
@@ -33,66 +33,11 @@ def userSpace(request):
 
 def historique(request):
     visite = Visite.objects.all()
-    installation = [
-    {
-        'heures' : '8h 50mn',
-        'client' : 
-            {
-                'last_name':'Mark', 
-                'first_name' : 'Tanga'
-            },
-        'etat' : 'oui',
-        'employes': [
-            {
-                'last_name':'Sankara', 
-                'first_name' : 'Steve'
-            }
-        ],
-        'comment' : 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as'
-    },
-    {
-        'heures' : '8h 40mn',
-        'client' :
-            {
-                'last_name':'Kaled', 
-                'first_name' : 'Brou'
-            },  
-        'etat' : 'oui',
-        'employes': [
-            {
-                'last_name':'Sankara', 
-                'first_name' : 'Steve'
-            },
-            {
-                'last_name':'Yan', 
-                'first_name' : 'Koffi'
-            }
-        ],
-        'comment' : 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as'
-    },
-    ]
-    depannage = [
-    {
-        'heures' : '8h 40mn',
-        'client' : 
-            {
-                'last_name':'Mark', 
-                'first_name' : 'Tanga'
-            },
-        'etat' : 'oui',
-        'employes': [
-            {
-                'last_name':'Sankara', 
-                'first_name' : 'Steve'
-            }
-        ],
-        'comment' : 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as'
-    }
-    ]
-    retrait = []
+    installation = Installation.objects.all()
+    depannage = Depannage.objects.all()
+    retrait = Retrait.objects.all()
 
     context = {
-        'nombre' : 2,
         'visites' : visite,
         'nbr_visite' : len(visite),
         'installations' : installation,
@@ -101,18 +46,26 @@ def historique(request):
         'nbr_depannage' : len(depannage),
         'retraits' : retrait,
         'nbr_retrait' : len(retrait),
-        'login' : True
     }
     return render(request, 'home/historique.html', context)
 
 def infoActEmploy(request,id):
-    users = Employe.objects.all()
-    for user in users:
-        if user.pk == id:
-            context = {
-                'user' : user,
-                'login' : False
-            }
+    visite = Visite.objects.filter(employe__pk=id)
+    installation = Installation.objects.filter(employe__pk=id)
+    depannage = Depannage.objects.filter(employe__pk=id)
+    retrait = Retrait.objects.filter(employe__pk=id)
+    user = Employe.objects.filter(pk=id)
+    context = {
+        'visites' : visite,
+        'nbr_visite' : len(visite),
+        'installations' : installation,
+        'nbr_installation' : len(installation),
+        'depannages' : depannage, 
+        'nbr_depannage' : len(depannage),
+        'retraits' : retrait,
+        'nbr_retrait' : len(retrait),
+        'user' : user[0]
+    }
     return render(request, 'home/infoActEmploy.html',context)
 
 def clients(request,id = 0):

@@ -18,49 +18,54 @@
                 <div class="row g-3" style="margin-left: 3px ;">
                   <div class="col">
                     <div class="card shadow-sm">
-                      <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#060452"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Visites de site<span class="badge bleu">1</span></text></svg>
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#060452"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Visites de site<span class="badge bleu">{{nbr_visite}}</span></text></svg>
                       <div class="card-body">
-                        <p class="nomClient"><span class="badge bleu">1</span> M. Zougou</p>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                      {% for visite in visites %}
+                        <p class="nomClient"><span class="badge bleu">{{ visite.heure }}</span>{{ visite.client.first_name }} {{ visite.client.last_name }}</p>
+                        <p class="card-text">{{ visite.comment }}</p>
                         <hr>
+                      {% endfor %}
                         <a href="{% url 'historique'%}#v"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
                       </div>
                     </div>
                   </div>
                   <div class="col">
                     <div class="card shadow-sm">
-                      <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#008523"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Installations<span class="badge vert">2</span></text></svg>
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#008523"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Installations<span class="badge vert">{{nbr_installation}}</span></text></svg>
                       <div class="card-body">
-                        <p class="nomClient"><span class="badge vert">1</span> M. Zougou</p>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                      {% for installation in installations %}
+                        <p class="nomClient"><span class="badge vert">{{ installation.heure }}</span>{{ installation.client.first_name }} {{ installation.client.last_name }}</p>
+                        <p class="card-text">{{ installation.comment }}</p>
                         <img src={% static 'image/pylone.jpg' %}>
                         <hr>
-                        <p class="nomClient"><span class="badge vert">2</span> M. Koutou</p>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                        <hr>
+                      {% endfor %}
                         <a href="{% url 'historique'%}#i"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
                       </div>
                     </div>
                   </div>
                   <div class="col">
                     <div class="card shadow-sm">
-                      <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="orange"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Dépannages<span class="badge orange">2</span></text></svg>
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="orange"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Dépannages<span class="badge orange">{{nbr_depannage}}</span></text></svg>
                       <div class="card-body">
-                        <p class="nomClient"><span class="badge orange">1</span> M. Zougou</p>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                      {% for depannage in depannages %}
+                        <p class="nomClient"><span class="badge orange">{{ depannage.heure }}</span> {{ depannage.client.first_name}} {{ depannage.client.last_name}}</p>
+                        <p class="card-text">{{ depannage.comment }}</p>
+                        <img src={% static 'image/pylone.jpg' %}>
                         <hr>
-                        <p class="nomClient"><span class="badge orange">2</span> M. Koutou</p>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                        <hr>
-                        <a href="{% url 'historique'%}#d"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
+                      {% endfor %}
+                         <a href="{% url 'historique'%}#d"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
                       </div>
                     </div>
                   </div>
                   <div class="col">
                     <div class="card shadow-sm">
-                      <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Retraits<span class="badge rouge">0</span></text></svg>
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Retraits<span class="badge rouge">{{nbr_retrait}}</span></text></svg>
                       <div class="card-body">
+                      {% for retrait in retraits %}
+                      <p class="nomClient"><span class="badge orange">{{ retrait.heure }}</span> {{ retrait.client.first_name}} {{ retrait.client.last_name}}</p>
+                      <p class="card-text">{{ retrait.comment }}</p>
                         <hr>
+                      {% endfor %}
                         <a href="{% url 'historique'%}#r"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
                       </div>
                     </div>
