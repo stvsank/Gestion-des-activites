@@ -23,76 +23,18 @@
 		    </tr>
 		  </thead>
 		  <tbody>
+		  {% for employe in employes %}
 		    <tr>
-		      <td class="centre">1</td>
-		      <td class="centre">Sank</td>
-		      <td class="centre">SANOU</td>
-		      <td class="centre">20</td>
-		      <td class="centre">10/30</td>
-		      <td class="centre">25</td>
-		      <td class="centre">5</td>
+		      <td class="centre">{{employe.pk}}</td>
+		      <td class="centre">{{employe.user.last_name}}</td>
+		      <td class="centre">{{employe.user.first_name}}</td>
+		      <td class="centre">{{employe.nbr_visite}}</td>
+		      <td class="centre">{{employe.nbr_installation}} / {{employe.nbr_installation}}</td>
+		      <td class="centre">{{employe.nbr_depannage}}</td>
+		      <td class="centre">{{employe.nbr_retrait}}</td>
 		      <td class="centre">30</td>
 		    </tr>
-		    <tr>
-		      <td class="centre">2</td>
-		      <td class="centre">Sank</td>
-		      <td class="centre">SANOU</td>
-		      <td class="centre">20</td>
-		      <td class="centre">10/30</td>
-		      <td class="centre">25</td>
-		      <td class="centre">5</td>
-		      <td class="centre">10</td>
-		    </tr>
-		    <tr>
-		      <td class="centre">3</td>
-		      <td class="centre">Sank</td>
-		      <td class="centre">SANOU</td>
-		      <td class="centre">20</td>
-		      <td class="centre">10/30</td>
-		      <td class="centre">25</td>
-		      <td class="centre">5</td>		    
-		      <td class="centre">0</td>		    
-		   </tr>
-		    <tr>
-		      <td class="centre">4</td>
-		      <td class="centre">Sank</td>
-		      <td class="centre">SANOU</td>
-		      <td class="centre">20</td>
-		      <td class="centre">10/30</td>
-		      <td class="centre">25</td>
-		      <td class="centre">5</td>		    
-		      <td class="centre">0</td>		    
-		   </tr>
-		    <tr>
-		      <td class="centre">5</td>
-		      <td class="centre">Sank</td>
-		      <td class="centre">SANOU</td>
-		      <td class="centre">20</td>
-		      <td class="centre">10/30</td>
-		      <td class="centre">25</td>
-		      <td class="centre">5</td>		    
-		      <td class="centre">0</td>		    
-		   </tr>
-		    <tr>
-		      <td class="centre">6</td>
-		      <td class="centre">Sank</td>
-		      <td class="centre">SANOU</td>
-		      <td class="centre">20</td>
-		      <td class="centre">10/30</td>
-		      <td class="centre">25</td>
-		      <td class="centre">5</td>		    
-		      <td class="centre">0</td>		    
-		   </tr>
-		    <tr>
-		      <td class="centre">7</td>
-		      <td class="centre">Sank</td>
-		      <td class="centre">SANOU</td>
-		      <td class="centre">20</td>
-		      <td class="centre">10/30</td>
-		      <td class="centre">25</td>
-		      <td class="centre">5</td>		    
-		      <td class="centre">0</td>		    
-		   </tr>
+		   {% endfor %}
 		 </tbody>
 		</table>
 </div>

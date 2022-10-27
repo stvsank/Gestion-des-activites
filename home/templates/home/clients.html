@@ -24,39 +24,43 @@
 		    </tr>
 		  </thead>
 		  <tbody>
+		  {% for client in clients %}
 		    <tr>
-		      <td class="centre">1</td>
-		      <td class="centre">Mark Tanga</td>
+		      <td class="centre"> {{client.user.pk}} </td>
+		      <td class="centre">{{client.user.first_name}} {{client.user.last_name}}</td>
 		      <td class="centre">cordonnée <hr> non loin de la pharmacie Abby</td>
-		      <td class="centre">Sank SANOU</td>
-		      <td class="centre">Sankara Steve <br><br> Saakjbi jbivjhjh</td>
-		      <td class="centre">Hamed Barry<br><br> Saakjbi jbivjhjh <hr>Sank SANOU</td>
-		      <td class="centre">Steve Sou<br><br> Saakjbi jbivjhjh </td>
+		      <td class="centre">
+		      	{{client.visites.0.date}}
+		      	<hr>
+		      	{% for employe in client.visites.0.employe.all %}
+		      		{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		   			{% endfor %}
+		      </td>
+		      <td class="centre">
+		      	{{client.installations.0.date}}
+		      	<hr>
+		      	{% for employe in client.installations.0.employe.all %}
+		      		{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		   			{% endfor %}
+		      </td>
+		      <td class="centre">
+		      	{{client.depannages.0.date}}
+		      	<hr>
+		      	{% for employe in client.depannages.0.employe.all %}
+		      		{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		   			{% endfor %}
+		      </td>
+		      <td class="centre">
+		      	{{client.retraits.0.date}}
+		      	<hr>
+		      	{% for employe in client.retraits.0.employe.all %}
+		      		{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		   			{% endfor %}
+		      </td>		      
 		      <td class="centre">8564165418964</td>
 		      <td class="centre">4861531681535br</td>
 		    </tr>
-		    <tr>
-		      <td class="centre">2</td>
-		      <td class="centre">Mark Tanga</td>
-		      <td class="centre">cordonnée <hr> non loin de la pharmacie Abby</td>
-		      <td class="centre">Sank SANOU</td>
-		      <td class="centre">Sankara Steve <br><br> Saakjbi jbivjhjh</td>
-		      <td class="centre">Sank SANOU<hr>Hamed Barry<br><br> Saakjbi jbivjhjh <hr>Sank SANOU</td>
-		      <td class="centre">Steve Sou<br><br> Saakjbi jbivjhjh </td>
-		      <td class="centre">8564165418964</td>
-		      <td class="centre">4861531681535br</td>
-		    </tr>
-		    <tr>
-		      <td class="centre">3</td>
-		      <td class="centre">Mark Tanga</td>
-		      <td class="centre">cordonnée <hr> non loin de la pharmacie Abby</td>
-		      <td class="centre">Sank SANOU</td>
-		      <td class="centre">Sankara Steve <br><br> Saakjbi jbivjhjh</td>
-		      <td class="centre">Sank SANOU</td>
-		      <td class="centre">Steve Sou<br><br> Saakjbi jbivjhjh </td>
-		      <td class="centre">8564165418964</td>
-		      <td class="centre">4861531681535br</td>
-		    </tr>
+		   {% endfor %}
 		 </tbody>
 		</table>
 </div>

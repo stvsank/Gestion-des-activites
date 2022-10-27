@@ -1,6 +1,6 @@
 from django.shortcuts import render # this line is added automatically
 from django.http import HttpResponse # pass view information into the browser
-from .models import Employe, Conge, Visite, Installation, Depannage, Retrait
+from .models import Employe, Conge, Visite, Installation, Depannage, Retrait, Client
 from datetime import datetime, date
 
 # takes a request, returns a response
@@ -68,14 +68,53 @@ def infoActEmploy(request,id):
     }
     return render(request, 'home/infoActEmploy.html',context)
 
-def clients(request,id = 0):
-    return render(request,'home/clients.html')
+def clients(request):
+    users = Client.objects.all()
+    clients = []
+    for user in users:
+
+        visite = Visite.objects.filter(client = user)
+        installation = Installation.objects.filter(client = user)
+        depannage = Depannage.objects.filter(client = user)
+        retrait = Retrait.objects.filter(client = user)
+        client = {
+            'visites' : visite,
+            'installations' : installation,
+            'depannages' : depannage, 
+            'retraits' : retrait,
+            'user' : user,
+        }
+        clients.append(client)
+        context = {
+            'clients' : clients
+        }
+    return render(request,'home/clients.html',context)
 
 def technique(request):
-    return render(request,'home/technique.html')
+    users = Employe.objects.all()
+    employes = []
+    for user in users:
+
+        visite = Visite.objects.filter(employe = user)
+        installation = Installation.objects.filter(employe = user)
+        depannage = Depannage.objects.filter(employe = user)
+        retrait = Retrait.objects.filter(employe = user)
+        employe = {
+            'visites' : visite,
+            'nbr_visite' : len(visite),
+            'installations' : installation,
+            'nbr_installation' : len(installation),
+            'depannages' : depannage, 
+            'nbr_depannage' : len(depannage),
+            'retraits' : retrait,
+            'nbr_retrait' : len(retrait),
+            'user' : user,
+        }
+        employes.append(employe)
+        context = {
+            'employes' : employes
+        }
+    return render(request,'home/technique.html',context)
 
 def statistique(request):
     return render(request,'home/statistique.html')
-
-
-   
