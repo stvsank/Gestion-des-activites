@@ -30,35 +30,58 @@
 		      <td class="centre">{{client.user.first_name}} {{client.user.last_name}}</td>
 		      <td class="centre">cordonnée <hr> non loin de la pharmacie Abby</td>
 		      <td class="centre">
-		      	{{client.visites.0.date}}
+		      	{% for visite in client.visites %}
+		      	{{visite.date}}
 		      	<hr>
-		      	{% for employe in client.visites.0.employe.all %}
-		      		{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		      		{% for employe in visite.employe.all %}
+		      			{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		   				{% endfor %}
 		   			{% endfor %}
 		      </td>
 		      <td class="centre">
-		      	{{client.installations.0.date}}
+		      	{% for installation in client.installations %}
+		      	{{installation.date}}
 		      	<hr>
-		      	{% for employe in client.installations.0.employe.all %}
-		      		{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		      		{% for employe in installation.employe.all %}
+		      			{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		   				{% endfor %}
 		   			{% endfor %}
 		      </td>
 		      <td class="centre">
-		      	{{client.depannages.0.date}}
+		      	{% for depannage in client.depannages %}
+		      	{{depannage.date}}
 		      	<hr>
-		      	{% for employe in client.depannages.0.employe.all %}
-		      		{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		      		{% for employe in depannage.employe.all %}
+		      			{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		   				{% endfor %}
+		   			<hr>
 		   			{% endfor %}
 		      </td>
 		      <td class="centre">
-		      	{{client.retraits.0.date}}
+		      	{% for retrait in client.retraits %}
+		      	{{retrait.date}}
 		      	<hr>
-		      	{% for employe in client.retraits.0.employe.all %}
-		      		{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		      		{% for employe in retrait.employe.all %}
+		      			{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		   				{% endfor %}
 		   			{% endfor %}
-		      </td>		      
-		      <td class="centre">8564165418964</td>
-		      <td class="centre">4861531681535br</td>
+		      </td>	  
+		      <td class="centre">
+		      	{% for routeur in client.routeurs %}
+		      		{{ routeur.nom }} <hr>{{ routeur.num_serie}} 
+		      		{% if client.routeurs.0 != routeur%}
+								<hr><hr>
+							{% endif%}
+		   			{% endfor %}
+		      </td>	      
+		      <td class="centre">
+		      	{% for antenne in client.antennes %}
+			      	{{ antenne.nom }} <hr>{{ antenne.num_serie}} 
+		      		{% if client.antennes.0 != antenne%}
+								<hr><hr>
+							{% endif%}
+		   			{% endfor %}
+		      </td>	      
 		    </tr>
 		   {% endfor %}
 		 </tbody>

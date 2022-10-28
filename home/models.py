@@ -108,11 +108,19 @@ class Retrait(models.Model):
         
 
 
-# class Device(models.Model):
-#     num_serie = models.CharField(primary_key=True,max_length=30)
-#     type_app = models.CharField(max_length=40)
-#     nom = models.CharField(max_length=40)
-#     new = models.BooleanField(default=True)
+class Routeur(models.Model):
+    num_serie = models.CharField(primary_key=True,max_length=30)
+    nom = models.CharField(max_length=40)
+    new = models.BooleanField(default=True)
+    client = models.ForeignKey(Client,on_delete=models.CASCADE)
+
+
+class Antenne(models.Model):
+    num_serie = models.CharField(primary_key=True,max_length=30)
+    nom = models.CharField(max_length=40)
+    new = models.BooleanField(default=True)
+    client = models.ForeignKey(Client,on_delete=models.CASCADE)
+
 
 
 # class Localisation(models.Model):

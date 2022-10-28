@@ -3,23 +3,20 @@
 {% block body %}
 {% endblock %}
 {% block content %}
- <style>
-
-   </style>
    <br>
 	<div class="voir" style="margin-right: 15px;margin-left: 15px;">
    	<img src={% static 'image/logo.PNG' %} id="logo">
 		<table class="table table-striped">
-		  <thead class="thead-light">
+		  <thead>
 		    <tr>
 	      <th scope="col" class="centre">N°</th>
 	      <th scope="col" class="centre">Noms</th>
 	      <th scope="col" class="centre">Prénoms</th>
 	      <th scope="col" class="centre">Visites</th>
-	      <th scope="col" class="centre">Dépanné/Installations</th>
+	      <th scope="col" class="centre">Dépannés / Installations</th>
 	      <th scope="col" class="centre">Dépannages</th>
 	      <th scope="col" class="centre">Retraits</th>
-	      <th scope="col" class="centre">Nombre de jour de congé pris</th>
+	      <th scope="col" class="centre">Congé(jours)</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -29,10 +26,10 @@
 		      <td class="centre">{{employe.user.last_name}}</td>
 		      <td class="centre">{{employe.user.first_name}}</td>
 		      <td class="centre">{{employe.nbr_visite}}</td>
-		      <td class="centre">{{employe.nbr_installation}} / {{employe.nbr_installation}}</td>
+		      <td class="centre">{{employe.panne}} / {{employe.nbr_installation}}</td>
 		      <td class="centre">{{employe.nbr_depannage}}</td>
 		      <td class="centre">{{employe.nbr_retrait}}</td>
-		      <td class="centre">30</td>
+		      <td class="centre">{{employe.jours}}</td>
 		    </tr>
 		   {% endfor %}
 		 </tbody>
