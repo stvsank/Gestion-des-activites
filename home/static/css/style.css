@@ -56,6 +56,8 @@
   font-weight: 800;
   color: grey;
 }
+
+
 /* Fin Couleur */
 
 /*fin entête*/
@@ -95,7 +97,11 @@
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
-
+@media screen and (max-width: 533px){
+    .table-hover{
+      font-size: 50%;
+    }
+}
 /*@media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
