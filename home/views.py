@@ -35,10 +35,10 @@ def userSpace(request):
     return HttpResponse("Espace utilisateur")
 
 def historique(request):
-    visite = Visite.objects.all()
-    installation = Installation.objects.all()
-    depannage = Depannage.objects.all()
-    retrait = Retrait.objects.all()
+    visite = Visite.objects.filter(date=datetime.now())
+    installation = Installation.objects.filter(date=datetime.now())
+    depannage = Depannage.objects.filter(date=datetime.now())
+    retrait = Retrait.objects.filter(date=datetime.now())
 
     context = {
         'visites' : visite,
@@ -53,10 +53,10 @@ def historique(request):
     return render(request, 'home/historique.html', context)
 
 def infoActEmploy(request,id):
-    visite = Visite.objects.filter(employe__pk=id)
-    installation = Installation.objects.filter(employe__pk=id)
-    depannage = Depannage.objects.filter(employe__pk=id)
-    retrait = Retrait.objects.filter(employe__pk=id)
+    visite = Visite.objects.filter(employe__pk=id,date=datetime.now())
+    installation = Installation.objects.filter(employe__pk=id,date=datetime.now())
+    depannage = Depannage.objects.filter(employe__pk=id,date=datetime.now())
+    retrait = Retrait.objects.filter(employe__pk=id,date=datetime.now())
     user = Employe.objects.filter(pk=id)
     context = {
         'visites' : visite,

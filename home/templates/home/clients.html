@@ -15,67 +15,69 @@
 		      <th scope="col" class=" centre">N°</th>
 		      <th scope="col" class="centre">Clients</th>
 		      <th scope="col" class="centre">Localisation</th>
-		      <th scope="col" class="centre">Visites</th>
+		      <th scope="col" class="centre"> Visites </th>
 		      <th scope="col" class="centre">Installations</th>
 		      <th scope="col" class="centre">Dépannages</th>
 		      <th scope="col" class="centre">Retraits</th>
-		      <th scope="col" class="centre">Routeurs</th>
-		      <th scope="col" class="centre">Antennes</th>
+		      <th scope="col" class="centre">Matériels</th>
 		    </tr>
 		  </thead>
 		  <tbody>
 		  {% for client in clients %}
 		    <tr>
 		      <td class="centre"> {{client.user.pk}} </td>
-		      <td class="centre">{{client.user.first_name}} {{client.user.last_name}}</td>
+		      <td class="centre">{{client.user.first_name}} <br>{{client.user.last_name}}<br><br> Tèl : {{ client.user.phone_number }}</td>
 		      <td class="centre">cordonnée <hr> non loin de la pharmacie Abby</td>
 		      <td class="centre">
 		      	{% for visite in client.visites %}
-		      	{{visite.date}}
+		      	{{visite.date|date:"d/M/y"}}
 		      	<hr>
 		      		{% for employe in visite.employe.all %}
-		      			{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		      			{{ employe.first_name }}<br>{{ employe.last_name}} <br><br>
 		   				{% endfor %}
 		   			{% endfor %}
 		      </td>
 		      <td class="centre">
 		      	{% for installation in client.installations %}
-		      	{{installation.date}}
+		      	{{installation.date|date:"d/M/y"}}
 		      	<hr>
 		      		{% for employe in installation.employe.all %}
-		      			{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		      			{{ employe.first_name }}<br>{{ employe.last_name}} <br><br>
 		   				{% endfor %}
 		   			{% endfor %}
 		      </td>
 		      <td class="centre">
 		      	{% for depannage in client.depannages %}
-		      	{{depannage.date}}
+		      		{% if client.depannages.0 != depannage%}
+								<hr>
+							{% endif%}
+		      	{{depannage.date|date:"d/M/y"}}
 		      	<hr>
 		      		{% for employe in depannage.employe.all %}
-		      			{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		      			{{ employe.first_name }}<br>{{ employe.last_name}} <br><br>
 		   				{% endfor %}
-		   			<hr>
 		   			{% endfor %}
 		      </td>
 		      <td class="centre">
 		      	{% for retrait in client.retraits %}
-		      	{{retrait.date}}
+		      	{{retrait.date|date:"d/M/y"}}
 		      	<hr>
 		      		{% for employe in retrait.employe.all %}
-		      			{{ employe.first_name }} {{ employe.last_name}} <br><br>
+		      			{{ employe.first_name }}<br>{{ employe.last_name}} <br><br>
 		   				{% endfor %}
 		   			{% endfor %}
 		      </td>	  
 		      <td class="centre">
 		      	{% for routeur in client.routeurs %}
+		      		Routeurs :
 		      		{{ routeur.nom }} <hr>{{ routeur.num_serie}} 
 		      		{% if client.routeurs.0 != routeur%}
-								<hr><hr>
+								<hr>
 							{% endif%}
+							<hr>	<hr>	
 		   			{% endfor %}
-		      </td>	      
-		      <td class="centre">
 		      	{% for antenne in client.antennes %}
+		      		Antennes :
 			      	{{ antenne.nom }} <hr>{{ antenne.num_serie}} 
 		      		{% if client.antennes.0 != antenne%}
 								<hr><hr>
