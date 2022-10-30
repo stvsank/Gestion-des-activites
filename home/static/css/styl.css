@@ -95,20 +95,40 @@
   user-select: none;
 }
 
+.respon{
+  font-size: 150%;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 @media screen and (max-width: 533px){
     .table-hover{
       font-size: 50%;
     }
+    .respon{
+      font-size: 100%;
+    }
 }
+/*Impression*/
+@media only print {
+   body {
+      visibility: hidden;
+   }
+   .cacher{
+      visibility: hidden;           
+   }
+   .voir {
+      visibility: visible;
+   }
+}
+
 /*@media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
 
   }
 }*/
-  /* fin carousel */
+  /* fin */
 
 
 /* TEAM CONTENT
@@ -162,7 +182,6 @@
 .team h2 {
   font-weight: 600;
 }
-/* rtl:begin:ignore */
 
 .nombre{
   display: flex;
@@ -176,32 +195,8 @@
   border-radius: 7px 7px 7px 7px;
 }
 
-
-
 .ajust{
   text-align: center;
 }
 
-
-/* rtl:end:ignore */
-
 /*pied de page*/
-.pied{
-  margin-bottom: 0px;
-  background-color: black;
-  color: white;
-  text-align: center;
-}
-
-/*Impression*/
-@media only print {
-   body {
-      visibility: hidden;
-   }
-   .cacher{
-      visibility: hidden;           
-   }
-   .voir {
-      visibility: visible;
-   }
-}

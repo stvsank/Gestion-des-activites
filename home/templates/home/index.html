@@ -120,7 +120,7 @@
             <a href="info/{{user.id}}">
               <img src={% static 'image/perso.png' %} alt="" class="profil1">
             </a>
-            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <h2 class="respon">{{ user.first_name }} {{ user.last_name }}</h2>
             <p>Ingénieur</p>
             {% if user.leave == False %}
             <div class="nombre">
@@ -140,7 +140,7 @@
             <a href="info/{{user.id}}">
               <img src={% static 'image/perso.png' %} alt="" class="profil1">
             </a>
-            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <h2 class="respon">{{ user.first_name }} {{ user.last_name }}</h2>
             <p>Technicien</p>
             {% if user.leave == False %}
             <div class="nombre">

@@ -95,11 +95,18 @@
   user-select: none;
 }
 
+.respon{
+  font-size: 150%;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 @media screen and (max-width: 533px){
     .table-hover{
       font-size: 50%;
+    }
+    .respon{
+      font-size: 100%;
     }
 }
 /*@media (min-width: 768px) {
