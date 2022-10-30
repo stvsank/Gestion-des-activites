@@ -3,6 +3,10 @@
   width: 75px;
 }
 
+button > a{
+  text-decoration: none;
+  color: black;
+}
 /* Couleur */
 .bg{
   background-color: #060452;

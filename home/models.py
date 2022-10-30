@@ -72,7 +72,8 @@ class Installation(models.Model):
     etat = models.CharField(max_length=4,choices=choix, default="oui")
     employe = models.ManyToManyField(Employe, blank=True)
     client = models.OneToOneField(Client,on_delete=models.CASCADE)
-
+    caractéristique = models.ImageField(null=True)
+    mat = models.ImageField(null=True)
     def __str__(self):
         return f'{self.date} {self.heure} {self.client}'
 
