@@ -11,6 +11,7 @@ psycopg2 = "==2.9.4"
 tzdata = "*"
 django-bootstrap-v5 = "*"
 dj-database-url = "*"
+django-jazzmin = "*"
 
 [dev-packages]
 
