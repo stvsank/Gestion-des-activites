@@ -15,6 +15,8 @@ class Employe(models.Model):
     job = models.CharField(max_length=20,choices=choix,default='Technicien')
     phone_number = models.IntegerField()
     leave = models.BooleanField(default=False)
+    profil = models.ImageField(upload_to='profil',null=True)
+
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'    
@@ -72,8 +74,8 @@ class Installation(models.Model):
     etat = models.CharField(max_length=4,choices=choix, default="oui")
     employe = models.ManyToManyField(Employe, blank=True)
     client = models.OneToOneField(Client,on_delete=models.CASCADE)
-    caractéristique = models.ImageField(null=True)
-    mat = models.ImageField(null=True)
+    caractéristique = models.ImageField(upload_to='caracteristique',null=True)
+    mat = models.ImageField(upload_to='mat',null=True)
     def __str__(self):
         return f'{self.date} {self.heure} {self.client}'
 
@@ -85,6 +87,8 @@ class Depannage(models.Model):
     etat = models.CharField(max_length=4,choices=choix, default="oui")
     employe = models.ManyToManyField(Employe, blank=True)
     client = models.ForeignKey(Client,on_delete=models.CASCADE)
+    caractéristique = models.ImageField(upload_to='caracteristique',null=True)
+    mat = models.ImageField(upload_to='mat',null=True)
 
     def __str__(self):
         return f'{self.date} {self.heure} {self.client}'

@@ -1,6 +1,15 @@
 {% extends './base.html' %}
 {% load static %}
     {% block content %}
+    <style type="text/css">
+      img{
+        max-width: 95%;
+        text-align: center;
+      }
+      .liste{
+        font-weight: 600;
+      }
+    </style>
         <br><br><br><br>
             <div class="container team">
                 <div class="row"></div>
@@ -35,8 +44,21 @@
                       <div class="card-body">
                       {% for installation in installations %}
                         <p class="nomClient"><span class="badge vert">{{ installation.heure }}</span>{{ installation.client.first_name }} {{ installation.client.last_name }}</p>
-                        <p class="card-text">{{ installation.comment }}</p>
-                        <img src={% static 'image/pylone.jpg' %}>
+                          {% if installation.comment %}
+                          <hr>
+                          <p class="liste">Commentaires</p>
+                          {{ installation.comment }}
+                          {% endif %}
+                          {% if installation.caractéristique%}
+                          <hr>
+                          <p class="liste">Caractéristiques</p>
+                            <img src={{installation.caractéristique.url}}>
+                          {% endif %}
+                          {% if installation.mat %}
+                          <hr>
+                          <p class="liste">Mat</p>
+                            <img src={{installation.mat.url}}>
+                          {% endif %}
                         <hr>
                       {% endfor %}
                         <a href="{% url 'historique'%}#i"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
@@ -49,8 +71,21 @@
                       <div class="card-body">
                       {% for depannage in depannages %}
                         <p class="nomClient"><span class="badge orange">{{ depannage.heure }}</span> {{ depannage.client.first_name}} {{ depannage.client.last_name}}</p>
-                        <p class="card-text">{{ depannage.comment }}</p>
-                        <img src={% static 'image/pylone.jpg' %}>
+                          {% if depannage.comment %}
+                          <hr>
+                          <p class="liste">Commentaires</p>
+                          {{ depannage.comment }}
+                          {% endif %}
+                          {% if depannage.caractéristique.url %}
+                          <hr>
+                          <p class="liste">Caractéristiques</p>
+                            <img src={{depannage.caractéristique.url}}>
+                          {% endif %}
+                          {% if depannage.mat.url %}
+                          <hr>
+                          <p class="liste">Mat</p>
+                            <img src={{depannage.mat.url}}>
+                          {% endif %}
                         <hr>
                       {% endfor %}
                          <a href="{% url 'historique'%}#d"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>

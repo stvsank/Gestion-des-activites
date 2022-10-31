@@ -1,6 +1,12 @@
 {% extends './base.html' %}
 {% load static %}
     {% block content %}
+    <style type="text/css">
+      a{
+        text-decoration: none;
+        color: black;
+      }
+    </style>
         <br>
         <!-- py-5 : marge -->
         <div class="voir">
@@ -30,7 +36,9 @@
                           <td class="centre">{{ visite.possible }}</td>
                           <td class="centre">
                             {% for employe in visite.employe.all %} 
-                              {{ employe.first_name }} {{ employe.last_name}} <br><br>
+                              <a href="{% url 'index'%}info/{{ employe.id }}">
+                                {{ employe.first_name }} {{ employe.last_name}} <br><br>
+                              </a>
                             {%  endfor %}
                           </td>
                           <td>{{ visite.comment }}</td>
@@ -63,7 +71,9 @@
                           <td class="centre">{{ installation.etat }}</td>
                           <td class="centre">
                             {% for employe in installation.employe.all %} 
-                              {{ employe.first_name }} {{ employe.last_name}}<br><br>
+                              <a href="{% url 'index'%}info/{{ employe.id }}">
+                                {{ employe.first_name }} {{ employe.last_name}} <br><br>
+                              </a>
                             {%  endfor %}
                           </td>
                           <td>{{ installation.comment }}</td>
@@ -96,7 +106,9 @@
                           <td class="centre">{{ depannage.etat }}</td>
                           <td class="centre">
                             {% for employe in depannage.employe.all %} 
-                              {{ employe.first_name }} {{ employe.last_name}} <br><br>
+                              <a href="{% url 'index'%}info/{{ employe.id }}">
+                                {{ employe.first_name }} {{ employe.last_name}} <br><br>
+                              </a>
                             {%  endfor %}
                           </td>
                           <td>{{ depannage.comment }}</td>
@@ -129,7 +141,9 @@
                           <td class="centre">{{ retrait.reste }}</td>
                           <td class="centre">
                             {% for employe in retrait.employe.all %} 
-                              {{ employe.first_name }} {{ employe.last_name}} <br><br>
+                              <a href="{% url 'index'%}info/{{ employe.id }}">
+                                {{ employe.first_name }} {{ employe.last_name}} <br><br>
+                              </a>
                             {%  endfor %}
                           </td>
                           <td>{{ retrait.comment }}</td>
