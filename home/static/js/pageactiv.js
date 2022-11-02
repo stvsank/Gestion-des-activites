@@ -1,7 +1,7 @@
 function relief()
 {
   var pageurl = location.href;
-  var dnl = document.getElementsByTagName("a");
+  var dnl = document.getElementsByClassName("a");
   for(i = 0; i < dnl.length;i++)
   {
     var x = dnl.item(i);

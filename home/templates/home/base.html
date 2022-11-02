@@ -14,6 +14,45 @@
 	{% block body %}
 	<body style="background-color: #F1F1F1;">
 	{% endblock %}
+	 	<!-- Debut Entête -->
+				<div class="orange fixed-top" style="padding: 29px;"><br></div>
+				<nav class="navbar navbar-expand-lg navbar-dark bg fixed-top" aria-label="Third navbar example">
+			    	<div class="container-fluid">
+			    		<a class="navbar-brand" href="#"><img src={% static 'image/logo.PNG' %} id="logo">
+						</a>
+			    		<button class="navbar-toggler cacher" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+			    			<span class="navbar-toggler-icon"></span>
+							</button>
+
+			    		<div class="collapse navbar-collapse" id="navbarsExample03">
+			    	    	<ul class="navbar-nav me-auto mb-2 mb-sm-0 ">
+								<li class="nav-item">
+									<a class="nav-link a" aria-current="page" href="{% url 'index' %}">Acceuil</a>
+			    	      		</li>
+			    	      		<li class="nav-item">
+			    	        		<a class="nav-link a" href="{% url 'historique'%}">Historique</a>
+			    	      		</li>
+			    	      		<li class="nav-item">
+			    	        		<a class="nav-link a" href="{% url 'clients'%}">Clients</a>
+			    	      		</li>		    	      		
+			    	      		<li class="nav-item">
+			    	        		<a class="nav-link a" href="{% url 'technique'%}">Technique</a>
+			    	      		</li>
+	<!-- 		    	      		<li class="nav-item">
+			    	        		<a class="nav-link" href="{% url 'statistique'%}">Statistique</a>
+			    	      		</li> -->
+							</ul>
+							<div style="display: flex; width: 55%;font-size: 100%;" >
+							{% block recherche %}
+							{% endblock %}
+							</div>	
+							<form>		
+				    	     		<button class="btn" style="background-color: #F08D00;" type="submit"><a href="{% url 'index' %}admin">Connectez-vous</a></button>
+			    	     	</form>
+						</div>
+					</div>
+			  	</nav>
+		<!-- Fin Entête -->
 	    {% block navbar %}
 			{% include './header.html' %}
 	    {% endblock %}
@@ -26,5 +65,5 @@
 		{% endblock %}
 	</body>	
 	{% bootstrap_javascript %}
-	<script type="text/javascript" src={% static 'js/pageactive.js' %}></script>
+	<script type="text/javascript" src={% static 'js/pageactiv.js' %}></script>
 </html>

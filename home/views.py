@@ -3,7 +3,8 @@ from django.http import HttpResponse # pass view information into the browser
 from .models import Employe, Conge, Visite, Installation, Depannage, Retrait, Client, Routeur, Antenne
 from datetime import datetime, date
 from django.db.models import Q #filter() or logique 
-
+from .forms import Dateform, Personform
+tmp = False
 # takes a request, returns a response
 def index(request):
     users = Employe.objects.all()
@@ -25,7 +26,6 @@ def index(request):
 ### Fin
     context = {
         'users' : users,
-        'login' : False
     }
 
     return render(request, 'home/index.html', context)
@@ -34,13 +34,32 @@ def index(request):
 def userSpace(request):
     return HttpResponse("Espace utilisateur")
 
-def historique(request):
-    visite = Visite.objects.filter(date=datetime.now())
-    installation = Installation.objects.filter(date=datetime.now())
-    depannage = Depannage.objects.filter(date=datetime.now())
-    retrait = Retrait.objects.filter(date=datetime.now())
-
-    context = {
+def historique(request,temps=datetime.now()):
+### permettre la correspondance entre l'historique générale et l'historique d'un employé
+    global tmp
+    if tmp != False:
+        temps = tmp
+###
+### traitement pour la barre de recherche
+    context={'form':Dateform()}
+    if request.method == 'POST':
+        # POST, generate form with data from the request
+        form = Dateform(request.POST)
+        # check if it's valid:
+        if form.is_valid():
+            # get the value of the fields
+            form_date = str(request.POST['date'])
+            temps = datetime.strptime(str(form_date), '%d/%m/%Y')
+            tmp = temps      
+    else:
+        # GET, generate blank form
+        context['form'] = Dateform()
+###
+    visite = Visite.objects.filter(date=temps)
+    installation = Installation.objects.filter(date=temps)
+    depannage = Depannage.objects.filter(date=temps)
+    retrait = Retrait.objects.filter(date=temps)
+    context.update({
         'visites' : visite,
         'nbr_visite' : len(visite),
         'installations' : installation,
@@ -49,15 +68,15 @@ def historique(request):
         'nbr_depannage' : len(depannage),
         'retraits' : retrait,
         'nbr_retrait' : len(retrait),
-    }
+    })
     return render(request, 'home/historique.html', context)
 
-def infoActEmploy(request,id):
-    visite = Visite.objects.filter(employe__pk=id,date=datetime.now())
-    installation = Installation.objects.filter(employe__pk=id,date=datetime.now())
-    depannage = Depannage.objects.filter(employe__pk=id,date=datetime.now())
-    retrait = Retrait.objects.filter(employe__pk=id,date=datetime.now())
-    user = Employe.objects.filter(pk=id)
+def historiqueAll(request):
+    visite = Visite.objects.all()
+    installation = Installation.objects.all()
+    depannage = Depannage.objects.all()
+    retrait = Retrait.objects.all()
+
     context = {
         'visites' : visite,
         'nbr_visite' : len(visite),
@@ -67,8 +86,50 @@ def infoActEmploy(request,id):
         'nbr_depannage' : len(depannage),
         'retraits' : retrait,
         'nbr_retrait' : len(retrait),
-        'user' : user[0]
     }
+    return render(request, 'home/historiqueAll.html', context)
+
+def infoActEmploy(request,id):
+### permettre la correspondance entre l'historique générale et l'historique d'un employé
+    global tmp
+    print(tmp)
+    if tmp == False:
+        temps = datetime.now()
+    else:
+        temps = tmp
+    context={'form':Personform()}
+###
+
+### traitement pour la barre de recherche
+    if request.method == 'POST':
+        # POST, generate form with data from the request
+        form = Personform(request.POST)
+        # check if it's valid:
+        if form.is_valid():
+            # get the value of the fields
+            form_date = str(request.POST['date'])
+            temps = datetime.strptime(str(form_date), '%d/%m/%Y')
+            tmp = temps      
+    else:
+        # GET, generate blank form
+        context['form'] = Personform()
+
+    visite = Visite.objects.filter(employe__pk=id,date=temps)
+    installation = Installation.objects.filter(employe__pk=id,date=temps)
+    depannage = Depannage.objects.filter(employe__pk=id,date=temps)
+    retrait = Retrait.objects.filter(employe__pk=id,date=temps)
+    user = Employe.objects.filter(pk=id)
+    context.update({
+        'visites' : visite,
+        'nbr_visite' : len(visite),
+        'installations' : installation,
+        'nbr_installation' : len(installation),
+        'depannages' : depannage, 
+        'nbr_depannage' : len(depannage),
+        'retraits' : retrait,
+        'nbr_retrait' : len(retrait),
+        'user' : user[0],
+    })
     return render(request, 'home/infoActEmploy.html',context)
 
 def clients(request):

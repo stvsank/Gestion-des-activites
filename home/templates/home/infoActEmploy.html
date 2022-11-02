@@ -1,5 +1,12 @@
 {% extends './base.html' %}
 {% load static %}
+    {% block recherche %}
+      <form method="POST">
+        {% csrf_token %}
+          {{form}}
+        <input type="submit" value="Chercher">
+      </form>
+    {% endblock %}
     {% block content %}
     <style type="text/css">
       img{
@@ -56,7 +63,7 @@
                           {% endif %}
                           {% if installation.mat %}
                           <hr>
-                          <p class="liste">Mat</p>
+                          <p class="liste">Matériels</p>
                             <img src={{installation.mat.url}}>
                           {% endif %}
                         <hr>
@@ -83,7 +90,7 @@
                           {% endif %}
                           {% if depannage.mat.url %}
                           <hr>
-                          <p class="liste">Mat</p>
+                          <p class="liste">Matériels</p>
                             <img src={{depannage.mat.url}}>
                           {% endif %}
                         <hr>
