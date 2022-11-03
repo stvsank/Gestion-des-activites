@@ -6,8 +6,11 @@
         {{form}}
       <input type="submit" value="Chercher">
     </form>
-      <a href="{% url 'historique'%}all" style="background-color: #E2E4E4;text-decoration: none;color: black; padding:0.4%;margin-left: 5px ;">
+      <a href="{% url 'historiqueAll'%}" style="background-color: #E2E4E4;text-decoration: none;color: black; padding:0.4%;margin-left: 5px ;">
       Tout Afficher
+      </a>
+      <a href="{% url 'index'%}info/0" style="background-color: #E2E4E4;text-decoration: none;color: black; padding:0.4%;margin-left: 15% ;">
+      Employe
       </a>
     {% endblock %}
     {% block content %}
@@ -46,7 +49,6 @@
                           <td class="centre">{{ visite.possible }}</td>
                           <td class="centre">
                             {% for employe in visite.employe.all %} 
-                              <a href="{% url 'index'%}info/{{ employe.id }}">
                                 {{ employe.first_name }} {{ employe.last_name}} <br><br>
                               </a>
                             {%  endfor %}
@@ -81,7 +83,6 @@
                           <td class="centre">{{ installation.etat }}</td>
                           <td class="centre">
                             {% for employe in installation.employe.all %} 
-                              <a href="{% url 'index'%}info/{{ employe.id }}">
                                 {{ employe.first_name }} {{ employe.last_name}} <br><br>
                               </a>
                             {%  endfor %}
@@ -116,7 +117,6 @@
                           <td class="centre">{{ depannage.etat }}</td>
                           <td class="centre">
                             {% for employe in depannage.employe.all %} 
-                              <a href="{% url 'index'%}info/{{ employe.id }}">
                                 {{ employe.first_name }} {{ employe.last_name}} <br><br>
                               </a>
                             {%  endfor %}
@@ -151,9 +151,7 @@
                           <td class="centre">{{ retrait.reste }}</td>
                           <td class="centre">
                             {% for employe in retrait.employe.all %} 
-                              <a href="{% url 'index'%}info/{{ employe.id }}">
                                 {{ employe.first_name }} {{ employe.last_name}} <br><br>
-                              </a>
                             {%  endfor %}
                           </td>
                           <td>{{ retrait.comment }}</td>

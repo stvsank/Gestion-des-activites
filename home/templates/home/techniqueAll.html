@@ -1,15 +1,11 @@
 {% extends './base.html' %}
+{% load static %}
 {% block recherche %}
-<form method="POST">
-  {% csrf_token %}
-    {{form}}
-  <input type="submit" value="Chercher">
-</form>
-  <a href="{% url 'techniqueAll'%}" style="background-color: #E2E4E4;text-decoration: none;color: black; padding:0.4%;margin-left: 5px ;">
-  Tout Afficher
+
+  <a href="{% url 'technique'%}" style="background-color: #E2E4E4;text-decoration: none;color: black; padding:0.4%;margin-left: 15% ;">
+  Rechercher
   </a>
 {% endblock %}
-{% load static %}
 {% block body %}
 {% endblock %}
 {% block content %}

@@ -9,6 +9,8 @@ urlpatterns = [
     path('historique/all', views.historiqueAll, name='historiqueAll'),
     path('info/<int:id>', views.infoActEmploy, name='infoActEmploy'),
     path('client', views.clients, name='clients'),
+    path('client/all', views.clientsAll, name='clientsAll'),
     path('technique', views.technique, name='technique'),
+    path('technique/all', views.techniqueAll, name='techniqueAll'),
     path('statistique', views.statistique, name='statistique'),
 ]
