@@ -12,6 +12,7 @@ tzdata = "*"
 django-bootstrap-v5 = "*"
 dj-database-url = "*"
 django-jazzmin = "*"
+pillow = "*"
 
 [dev-packages]
 
