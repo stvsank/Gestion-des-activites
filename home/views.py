@@ -147,7 +147,9 @@ def clients(request):
             if prenom != 'prénom':
                 client = Client.objects.filter(first_name__icontains=prenom)
             if client:
-                id=client[0].id     
+                id=client[0].id
+            else:
+                client=[]     
     else:
         # GET, generate blank form
         context['form'] = Personform2()
@@ -218,7 +220,9 @@ def technique(request):
             if prenom != 'prénom':
                 employe = Employe.objects.filter(first_name__icontains=prenom)
             if employe:
-                id=employe[0].id     
+                id=employe[0].id
+            else:
+                employe=[]      
     else:
         # GET, generate blank form
         context['form'] = Personform2()

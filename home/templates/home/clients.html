@@ -24,7 +24,7 @@
 		    <tr>
 		      <th scope="col" class=" centre">N°</th>
 		      <th scope="col" class="centre">Clients</th>
-		      <th scope="col" class="centre">Localisation</th>
+		      <!-- <th scope="col" class="centre">Localisation</th> -->
 		      <th scope="col" class="centre"> Visites </th>
 		      <th scope="col" class="centre">Installations</th>
 		      <th scope="col" class="centre">Dépannages</th>
@@ -37,7 +37,7 @@
 		    <tr>
 		      <td class="centre"> {{client.user.pk}} </td>
 		      <td class="centre">{{client.user.first_name}} <br>{{client.user.last_name}}<br><br> Tèl : {{ client.user.phone_number }}</td>
-		      <td class="centre">cordonnée <hr> non loin de la pharmacie Abby</td>
+		      <!-- <td class="centre">cordonnée <hr> non loin de la pharmacie Abby</td> -->
 		      <td class="centre">
 		      	{% for visite in client.visites %}
 		      	{{visite.date|date:"d/M/y"}}
