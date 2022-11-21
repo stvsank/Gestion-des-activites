@@ -83,12 +83,12 @@
                           <p class="liste">Commentaires</p>
                           {{ depannage.comment }}
                           {% endif %}
-                          {% if depannage.caractéristique.url %}
+                          {% if depannage.caractéristique %}
                           <hr>
                           <p class="liste">Caractéristiques</p>
                             <img src={{depannage.caractéristique.url}}>
                           {% endif %}
-                          {% if depannage.mat.url %}
+                          {% if depannage.mat %}
                           <hr>
                           <p class="liste">Matériels</p>
                             <img src={{depannage.mat.url}}>

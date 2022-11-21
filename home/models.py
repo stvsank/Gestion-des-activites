@@ -15,7 +15,7 @@ class Employe(models.Model):
     job = models.CharField(max_length=20,choices=choix,default='Technicien')
     phone_number = models.IntegerField()
     leave = models.BooleanField(default=False)
-    profil = models.ImageField(upload_to='profil',null=True)
+    profil = models.ImageField(upload_to='profil',null=True,blank=True)
 
 
     def __str__(self):
@@ -60,7 +60,7 @@ class Visite(models.Model):
     heure = models.TimeField(auto_now_add=True)
     possible = models.CharField(max_length=4,choices=choix,default="oui")
     comment = models.TextField(max_length=250)
-    employe = models.ManyToManyField(Employe, blank=True)
+    employe = models.ManyToManyField(Employe)
     client = models.OneToOneField(Client,on_delete=models.CASCADE)
 
     def __str__(self):
@@ -85,10 +85,10 @@ class Depannage(models.Model):
     heure = models.TimeField(auto_now_add=True)
     comment = models.TextField(max_length=250)
     etat = models.CharField(max_length=4,choices=choix, default="oui")
-    employe = models.ManyToManyField(Employe, blank=True)
+    employe = models.ManyToManyField(Employe)
     client = models.ForeignKey(Client,on_delete=models.CASCADE)
-    caractéristique = models.ImageField(upload_to='caracteristique',null=True)
-    mat = models.ImageField(upload_to='mat',null=True)
+    caractéristique = models.ImageField(upload_to='caracteristique',blank=True,null=True)
+    mat = models.ImageField(upload_to='mat',blank=True,null=True)
 
     def __str__(self):
         return f'{self.date} {self.heure} {self.client}'

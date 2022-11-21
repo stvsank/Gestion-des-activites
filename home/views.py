@@ -44,8 +44,9 @@ def historique(request,temps=datetime.now()):
         if form.is_valid():
             # get the value of the fields
             form_date = str(request.POST['date'])
-            temps = datetime.strptime(str(form_date), '%d/%m/%Y')
-            tmp = temps      
+            if form_date != "":
+                temps = datetime.strptime(str(form_date), '%d/%m/%Y')
+                tmp = temps      
     else:
         # GET, generate blank form
         context['form'] = Dateform()
@@ -104,29 +105,44 @@ def infoActEmploy(request,id=0):
             if employe:
                 id=employe[0].id
             form_date = str(request.POST['date'])
-            if form_date != '31/12/2000':
+            if form_date != '31/12/2000' and form_date != "":
                 temps = datetime.strptime(str(form_date), '%d/%m/%Y')      
     else:
         # GET, generate blank form
         context['form'] = Personform()
-
-    visite = Visite.objects.filter(employe__pk=id,date=temps)
-    installation = Installation.objects.filter(employe__pk=id,date=temps)
-    depannage = Depannage.objects.filter(employe__pk=id,date=temps)
-    retrait = Retrait.objects.filter(employe__pk=id,date=temps)
-    user = Employe.objects.filter(pk=id)
-    context.update({
-        'visites' : visite,
-        'nbr_visite' : len(visite),
-        'installations' : installation,
-        'nbr_installation' : len(installation),
-        'depannages' : depannage, 
-        'nbr_depannage' : len(depannage),
-        'retraits' : retrait,
-        'nbr_retrait' : len(retrait),
-    })
-    if user:
-        context.update({'user' : user[0]})
+    if id == 0:
+        context.update({
+            'visites' : [],
+            'nbr_visite' : 0,
+            'installations' : [],
+            'nbr_installation' : 0,
+            'depannages' : [], 
+            'nbr_depannage' : 0,
+            'retraits' : [],
+            'nbr_retrait' : 0,
+            'user' : "",
+        })
+    else :
+        visite = Visite.objects.filter(employe__pk=id,date=temps)
+        installation = Installation.objects.filter(employe__pk=id,date=temps)
+        depannage = Depannage.objects.filter(employe__pk=id,date=temps)
+        retrait = Retrait.objects.filter(employe__pk=id,date=temps)
+        user = Employe.objects.filter(pk=id)
+        context.update({
+            'visites' : visite,
+            'nbr_visite' : len(visite),
+            'installations' : installation,
+            'nbr_installation' : len(installation),
+            'depannages' : depannage, 
+            'nbr_depannage' : len(depannage),
+            'retraits' : retrait,
+            'nbr_retrait' : len(retrait),
+        })
+        print(user)
+        print(id)
+        if user:
+            context.update({'user' : user[0]})
+        print(context)
     return render(request, 'home/infoActEmploy.html',context)
 
 def clients(request):

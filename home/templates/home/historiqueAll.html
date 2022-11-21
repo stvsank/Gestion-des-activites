@@ -30,6 +30,7 @@
                     <table class="table table-hover ">
                       <thead>
                         <tr>
+                          <th scope="col" class="col-1 centre">Dates</th>
                           <th scope="col" class="col-1 centre">Heures</th>
                           <th scope="col" class="col-2 centre">Clients</th>
                           <th scope="col" class="col-1 centre">Possible</th>
@@ -40,6 +41,7 @@
                       <tbody>
                       {% for visite in visites %}
                         <tr>
+                          <th class="centre">{{ visite.date }}</th>
                           <th class="centre">{{ visite.heure }}</th>
                           <td class="centre">{{ visite.client.first_name }} {{ visite.client.last_name }}</td>
                           <td class="centre">{{ visite.possible }}</td>
@@ -63,6 +65,7 @@
                     <table class="table table-hover ">
                       <thead>
                         <tr>
+                          <th scope="col" class="col-1 centre">Dates</th>
                           <th scope="col" class="col-1 centre">Heures</th>
                           <th scope="col" class="col-2 centre">Clients</th>
                           <th scope="col" class="col-1 centre">Fonctionnels</th>
@@ -73,6 +76,7 @@
                       <tbody>
                       {% for installation in installations %}
                         <tr>
+                          <th class="centre">{{ installation.date }}</th>
                           <th class="centre">{{ installation.heure }}</th>
                           <td class="centre">{{ installation.client.first_name }} {{ installation.client.last_name }}</td>
                           <td class="centre">{{ installation.etat }}</td>
@@ -96,6 +100,7 @@
                     <table class="table table-hover ">
                       <thead>
                         <tr>
+                          <th scope="col" class="col-1 centre">Dates</th>
                           <th scope="col" class="col-1 centre">Heures</th>
                           <th scope="col" class="col-2 centre">Clients</th>
                           <th scope="col" class="col-1 centre">Fonctionnels</th>
@@ -106,6 +111,7 @@
                       <tbody>
                       {% for depannage in depannages %}
                         <tr>
+                          <th class="centre">{{ depannage.date }}</th>
                           <th class="centre">{{ depannage.heure }}</th>
                           <td class="centre">{{ depannage.client.first_name}} {{ depannage.client.last_name}}</td>
                           <td class="centre">{{ depannage.etat }}</td>
@@ -129,6 +135,7 @@
                     <table class="table table-hover ">
                       <thead>
                         <tr>
+                          <th scope="col" class="col-1 centre">Dates</th>
                           <th scope="col" class="col-1 centre">Heures</th>
                           <th scope="col" class="col-2 centre">Clients</th>
                           <th scope="col" class="col-1 centre">Reste</th>
@@ -139,6 +146,7 @@
                       <tbody>
                       {% for retrait in retraits %}
                         <tr>
+                          <th class="centre">{{ retrait.date }}</th>
                           <th class="centre">{{ retrait.heure }}</th>
                           <td class="centre">{{ retrait.client.first_name }} {{ retrait.client.last_name }}</td>
                           <td class="centre">{{ retrait.reste }}</td>
