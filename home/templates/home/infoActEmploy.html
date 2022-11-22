@@ -21,7 +21,7 @@
             <div class="container team">
                 <div class="row"></div>
                     <div class="col ajust"> 
-                        <img src={% static 'image/perso.png' %}  alt="" class="profil2">
+                        <img src={% if user.profil %} {{user.profil.url}} {% else %} {% static 'image/perso.png' %} {% endif %} class="profil">
                       <h2>{{ user.first_name }} {{ user.last_name }}</h2>
                     </div>
                     <hr>

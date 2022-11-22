@@ -98,14 +98,14 @@ def infoActEmploy(request,id=0):
             nom=str(request.POST['last_name'])
             prenom=str(request.POST['first_name'])
             employe = False
-            if nom != 'nom':
+            if nom != '':
                 employe = Employe.objects.filter(last_name__icontains=nom)
-            if prenom != 'prénom':
+            if prenom != '':
                 employe = Employe.objects.filter(first_name__icontains=prenom)
             if employe:
                 id=employe[0].id
             form_date = str(request.POST['date'])
-            if form_date != '31/12/2000' and form_date != "":
+            if form_date != "":
                 temps = datetime.strptime(str(form_date), '%d/%m/%Y')      
     else:
         # GET, generate blank form
@@ -158,9 +158,9 @@ def clients(request):
             nom=str(request.POST['last_name'])
             prenom=str(request.POST['first_name'])
             client = False
-            if nom != 'nom':
+            if nom != '':
                 client = Client.objects.filter(last_name__icontains=nom)
-            if prenom != 'prénom':
+            if prenom != '':
                 client = Client.objects.filter(first_name__icontains=prenom)
             if client:
                 id=client[0].id
