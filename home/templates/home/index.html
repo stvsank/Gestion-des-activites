@@ -1,6 +1,5 @@
 {% extends './base.html' %}
 {% load static %}
-<body style="background-color: #F1F1F1;">
 	{% block content %}
         <br><br><br><br>
         <!-- Début carousel -->
@@ -110,9 +109,8 @@
             {% endif %}
           </div>
           {% endif %}
-        {% endfor %}
-          <br>
-          <h2 id="title">Département Technique</h2>
+        {% endfor %} 
+          <h2 id="title"><br>Département Technique</h2>
           <hr>
         {% for user in users %}
           {% if user.job == 'Ingénieur' %}

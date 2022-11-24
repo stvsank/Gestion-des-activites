@@ -70,10 +70,10 @@ class Visite(models.Model):
 class Installation(models.Model):
     date = models.DateField(auto_now_add=True)
     heure = models.TimeField(auto_now_add=True)
-    comment = models.TextField(max_length=250)
-    etat = models.CharField(max_length=4,choices=choix, default="oui")
-    employe = models.ManyToManyField(Employe, blank=True)
     client = models.OneToOneField(Client,on_delete=models.CASCADE)
+    employe = models.ManyToManyField(Employe, blank=True)
+    etat = models.CharField(max_length=4,choices=choix, default="oui")
+    comment = models.TextField(max_length=250)
     caractéristique = models.ImageField(upload_to='caracteristique',null=True)
     mat = models.ImageField(upload_to='mat',null=True)
     def __str__(self):
@@ -83,10 +83,10 @@ class Installation(models.Model):
 class Depannage(models.Model):
     date = models.DateField(auto_now_add=True)
     heure = models.TimeField(auto_now_add=True)
-    comment = models.TextField(max_length=250)
-    etat = models.CharField(max_length=4,choices=choix, default="oui")
-    employe = models.ManyToManyField(Employe)
     client = models.ForeignKey(Client,on_delete=models.CASCADE)
+    employe = models.ManyToManyField(Employe)
+    etat = models.CharField(max_length=4,choices=choix, default="oui")
+    comment = models.TextField(max_length=250)
     caractéristique = models.ImageField(upload_to='caracteristique',blank=True,null=True)
     mat = models.ImageField(upload_to='mat',blank=True,null=True)
 
@@ -97,10 +97,10 @@ class Depannage(models.Model):
 class Retrait(models.Model):
     date = models.DateField(auto_now_add=True)
     heure = models.TimeField(auto_now_add=True)
-    comment = models.TextField(max_length=250)
-    reste = models.CharField(max_length=4,choices=choix, default="non")
-    employe = models.ManyToManyField(Employe, blank=True)
     client = models.OneToOneField(Client,on_delete=models.CASCADE)
+    employe = models.ManyToManyField(Employe, blank=True)
+    reste = models.CharField(max_length=4,choices=choix, default="non")
+    comment = models.TextField(max_length=250)
 
     def __str__(self):
         return f'{self.date} {self.heure} {self.client}'
