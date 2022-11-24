@@ -32,14 +32,14 @@
 		  {% for client in clients %}
 		    <tr>
 		      <td class="centre"> {{client.user.pk}} </td>
-		      <td class="centre">{{client.user.first_name}} <br>{{client.user.last_name}}<br><br> Tèl : {{ client.user.phone_number }}</td>
+		      <td class="centre">{{client.user.first_name | title }} <br>{{client.user.last_name |upper}}<br><br> Tèl : {{ client.user.phone_number }}</td>
 		      <!-- <td class="centre">cordonnée <hr> non loin de la pharmacie Abby</td> -->
 		      <td class="centre">
 		      	{% for visite in client.visites %}
 		      	{{visite.date|date:"d/M/y"}}
 		      	<hr>
 		      		{% for employe in visite.employe.all %}
-		      			{{ employe.first_name }}<br>{{ employe.last_name}} <br><br>
+		      			{{ employe.first_name | title  }}<br>{{ employe.last_name |upper}} <br><br>
 		   				{% endfor %}
 		   			{% endfor %}
 		      </td>
@@ -48,7 +48,7 @@
 		      	{{installation.date|date:"d/M/y"}}
 		      	<hr>
 		      		{% for employe in installation.employe.all %}
-		      			{{ employe.first_name }}<br>{{ employe.last_name}} <br><br>
+		      			{{ employe.first_name | title  }}<br>{{ employe.last_name |upper}} <br><br>
 		   				{% endfor %}
 		   			{% endfor %}
 		      </td>
@@ -60,7 +60,7 @@
 		      	{{depannage.date|date:"d/M/y"}}
 		      	<hr>
 		      		{% for employe in depannage.employe.all %}
-		      			{{ employe.first_name }}<br>{{ employe.last_name}} <br><br>
+		      			{{ employe.first_name | title  }}<br>{{ employe.last_name |upper}} <br><br>
 		   				{% endfor %}
 		   			{% endfor %}
 		      </td>
@@ -69,7 +69,7 @@
 		      	{{retrait.date|date:"d/M/y"}}
 		      	<hr>
 		      		{% for employe in retrait.employe.all %}
-		      			{{ employe.first_name }}<br>{{ employe.last_name}} <br><br>
+		      			{{ employe.first_name | title  }}<br>{{ employe.last_name |upper}} <br><br>
 		   				{% endfor %}
 		   			{% endfor %}
 		      </td>	  

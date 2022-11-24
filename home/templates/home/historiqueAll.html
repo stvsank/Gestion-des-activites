@@ -43,11 +43,11 @@
                         <tr>
                           <th class="centre">{{ visite.date }}</th>
                           <th class="centre">{{ visite.heure }}</th>
-                          <td class="centre">{{ visite.client.first_name }} {{ visite.client.last_name }}</td>
+                          <td class="centre">{{ visite.client.first_name | title  }} {{ visite.client.last_name |upper }}</td>
                           <td class="centre">{{ visite.possible }}</td>
                           <td class="centre">
                             {% for employe in visite.employe.all %} 
-                                {{ employe.first_name }} {{ employe.last_name}} <br><br>
+                                {{ employe.first_name | title  }} {{ employe.last_name |upper}} <br><br>
                             {%  endfor %}
                           </td>
                           <td>{{ visite.comment }}</td>
@@ -78,11 +78,11 @@
                         <tr>
                           <th class="centre">{{ installation.date }}</th>
                           <th class="centre">{{ installation.heure }}</th>
-                          <td class="centre">{{ installation.client.first_name }} {{ installation.client.last_name }}</td>
+                          <td class="centre">{{ installation.client.first_name | title  }} {{ installation.client.last_name |upper }}</td>
                           <td class="centre">{{ installation.etat }}</td>
                           <td class="centre">
                             {% for employe in installation.employe.all %} 
-                                {{ employe.first_name }} {{ employe.last_name}} <br><br>
+                                {{ employe.first_name | title  }} {{ employe.last_name |upper}} <br><br>
                             {%  endfor %}
                           </td>
                           <td>{{ installation.comment }}</td>
@@ -113,11 +113,11 @@
                         <tr>
                           <th class="centre">{{ depannage.date }}</th>
                           <th class="centre">{{ depannage.heure }}</th>
-                          <td class="centre">{{ depannage.client.first_name}} {{ depannage.client.last_name}}</td>
+                          <td class="centre">{{ depannage.client.first_name | title }} {{ depannage.client.last_name |upper}}</td>
                           <td class="centre">{{ depannage.etat }}</td>
                           <td class="centre">
                             {% for employe in depannage.employe.all %} 
-                                {{ employe.first_name }} {{ employe.last_name}} <br><br>
+                                {{ employe.first_name | title  }} {{ employe.last_name |upper}} <br><br>
                             {%  endfor %}
                           </td>
                           <td>{{ depannage.comment }}</td>
@@ -148,11 +148,11 @@
                         <tr>
                           <th class="centre">{{ retrait.date }}</th>
                           <th class="centre">{{ retrait.heure }}</th>
-                          <td class="centre">{{ retrait.client.first_name }} {{ retrait.client.last_name }}</td>
+                          <td class="centre">{{ retrait.client.first_name | title  }} {{ retrait.client.last_name |upper }}</td>
                           <td class="centre">{{ retrait.reste }}</td>
                           <td class="centre">
                             {% for employe in retrait.employe.all %} 
-                                {{ employe.first_name }} {{ employe.last_name}} <br><br>
+                                {{ employe.first_name | title  }} {{ employe.last_name |upper}} <br><br>
                             {%  endfor %}
                           </td>
                           <td>{{ retrait.comment }}</td>

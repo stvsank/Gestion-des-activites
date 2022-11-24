@@ -22,7 +22,7 @@
                 <div class="row"></div>
                     <div class="col ajust"> 
                         <img src={% if user.profil %} {{user.profil.url}} {% else %} {% static 'image/perso.png' %} {% endif %} class="profil">
-                      <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+                      <h2>{{ user.first_name | title  }} {{ user.last_name |upper }}</h2>
                     </div>
                     <hr>
                 </div>
@@ -37,7 +37,7 @@
                       <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#060452"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Visites de site<span class="badge bleu">{{nbr_visite}}</span></text></svg>
                       <div class="card-body">
                       {% for visite in visites %}
-                        <p class="nomClient"><span class="badge bleu">{{ visite.heure }}</span>{{ visite.client.first_name }} {{ visite.client.last_name }}</p>
+                        <p class="nomClient"><span class="badge bleu">{{ visite.heure }}</span>{{ visite.client.first_name | title  }} {{ visite.client.last_name |upper }}</p>
                         <p class="card-text">{{ visite.comment }}</p>
                         <hr>
                       {% endfor %}
@@ -50,7 +50,7 @@
                       <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#008523"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Installations<span class="badge vert">{{nbr_installation}}</span></text></svg>
                       <div class="card-body">
                       {% for installation in installations %}
-                        <p class="nomClient"><span class="badge vert">{{ installation.heure }}</span>{{ installation.client.first_name }} {{ installation.client.last_name }}</p>
+                        <p class="nomClient"><span class="badge vert">{{ installation.heure }}</span>{{ installation.client.first_name | title  }} {{ installation.client.last_name |upper }}</p>
                           {% if installation.comment %}
                           <hr>
                           <p class="liste">Commentaires</p>
@@ -77,7 +77,7 @@
                       <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="orange"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Dépannages<span class="badge orange">{{nbr_depannage}}</span></text></svg>
                       <div class="card-body">
                       {% for depannage in depannages %}
-                        <p class="nomClient"><span class="badge orange">{{ depannage.heure }}</span> {{ depannage.client.first_name}} {{ depannage.client.last_name}}</p>
+                        <p class="nomClient"><span class="badge orange">{{ depannage.heure }}</span> {{ depannage.client.first_name | title }} {{ depannage.client.last_name |upper}}</p>
                           {% if depannage.comment %}
                           <hr>
                           <p class="liste">Commentaires</p>
@@ -104,7 +104,7 @@
                       <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Retraits<span class="badge rouge">{{nbr_retrait}}</span></text></svg>
                       <div class="card-body">
                       {% for retrait in retraits %}
-                      <p class="nomClient"><span class="badge orange">{{ retrait.heure }}</span> {{ retrait.client.first_name}} {{ retrait.client.last_name}}</p>
+                      <p class="nomClient"><span class="badge orange">{{ retrait.heure }}</span> {{ retrait.client.first_name | title }} {{ retrait.client.last_name |upper}}</p>
                       <p class="card-text">{{ retrait.comment }}</p>
                         <hr>
                       {% endfor %}

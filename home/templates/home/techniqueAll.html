@@ -29,8 +29,8 @@
 		  {% for employe in employes %}
 		    <tr>
 		      <td class="centre">{{employe.pk}}</td>
-		      <td class="centre">{{employe.user.last_name}}</td>
-		      <td class="centre">{{employe.user.first_name}}</td>
+		      <td class="centre">{{employe.user.last_name |upper}}</td>
+		      <td class="centre">{{employe.user.first_name | title }}</td>
 		      <td class="centre">{{employe.nbr_visite}}</td>
 		      <td class="centre">{{employe.panne}} / {{employe.nbr_installation}}</td>
 		      <td class="centre">{{employe.nbr_depannage}}</td>

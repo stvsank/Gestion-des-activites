@@ -19,7 +19,7 @@ class Employe(models.Model):
 
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'    
+        return f'{self.first_name} {self.last_name.upper()}'    
 
 
 class Conge(models.Model):
@@ -28,7 +28,7 @@ class Conge(models.Model):
     employe = models.ForeignKey(Employe, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.debut} - {self.fin}'    
+        return f'{self.employe} --- {self.debut} - {self.fin}'    
 
 # class Image(models.Model):
 #     image = models.URLField()
@@ -42,13 +42,31 @@ class Conge(models.Model):
 # class ImageMateriel(Image):
 #     pass
 
+class Routeur(models.Model):
+    num_serie = models.CharField(primary_key=True,max_length=30)
+    nom = models.CharField(max_length=40)
+    new = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f'{self.nom} --- {self.num_serie}'
+
+class Antenne(models.Model):
+    num_serie = models.CharField(primary_key=True,max_length=30)
+    nom = models.CharField(max_length=40)
+    new = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f'{self.nom} --- {self.num_serie}'
+  
 class Client(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=40)
     phone_number = models.IntegerField()
+    routeur = models.ForeignKey(Routeur,on_delete=models.CASCADE,null=True)
+    antenne = models.ForeignKey(Antenne,on_delete=models.CASCADE,null=True)
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+        return f'{self.first_name} {self.last_name.upper()}'
 
 # activitées
 choix = [
@@ -64,7 +82,7 @@ class Visite(models.Model):
     client = models.OneToOneField(Client,on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.date} {self.heure} {self.client} {self.employe}'
+        return f'Jour : {self.date} --- Date : {self.heure}  --- Client : {self.client}  ---  Employe: {self.employe.all()}'
     
 
 class Installation(models.Model):
@@ -77,7 +95,7 @@ class Installation(models.Model):
     caractéristique = models.ImageField(upload_to='caracteristique',null=True)
     mat = models.ImageField(upload_to='mat',null=True)
     def __str__(self):
-        return f'{self.date} {self.heure} {self.client}'
+        return f'Jour : {self.date} --- Date : {self.heure}  --- Client : {self.client}  ---  Employe: {self.employe.all()}'
 
         
 class Depannage(models.Model):
@@ -91,7 +109,7 @@ class Depannage(models.Model):
     mat = models.ImageField(upload_to='mat',blank=True,null=True)
 
     def __str__(self):
-        return f'{self.date} {self.heure} {self.client}'
+        return f'Jour : {self.date} --- Date : {self.heure}  --- Client : {self.client}  ---  Employe: {self.employe.all()}'
 
  
 class Retrait(models.Model):
@@ -103,7 +121,7 @@ class Retrait(models.Model):
     comment = models.TextField(max_length=250)
 
     def __str__(self):
-        return f'{self.date} {self.heure} {self.client}'
+        return f'Jour : {self.date} --- Date : {self.heure}  --- Client : {self.client}  ---  Employe: {self.employe.all()}'
 
  
 
@@ -111,20 +129,6 @@ class Retrait(models.Model):
 #     imageCaracteristique = models.ManyToManyField(ImageCaractéristique, blank=True)
 #     imageMateriel = models.ManyToManyField(ImageMateriel, blank=True)
         
-
-
-class Routeur(models.Model):
-    num_serie = models.CharField(primary_key=True,max_length=30)
-    nom = models.CharField(max_length=40)
-    new = models.BooleanField(default=True)
-    client = models.ForeignKey(Client,on_delete=models.CASCADE)
-
-
-class Antenne(models.Model):
-    num_serie = models.CharField(primary_key=True,max_length=30)
-    nom = models.CharField(max_length=40)
-    new = models.BooleanField(default=True)
-    client = models.ForeignKey(Client,on_delete=models.CASCADE)
 
 
 

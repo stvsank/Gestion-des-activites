@@ -62,8 +62,8 @@
           {% if user.job == 'DG' %}
           <div class="col-lg-4 col-sm-12 col-12">
             <img src= {% if user.profil %} {{user.profil.url}} {% else %} {% static 'image/perso.png' %} {% endif %} alt="" class="profil">
-            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
-            <p>Dicteur Général</p>
+            <h2>{{ user.first_name | title  }} {{ user.last_name |upper }}</h2>
+            <p>Directeur Général</p>
             {% if user.leave == False %}
             <div class="nombre">
               <p class="bleu whiteT number">(226) {{ user.phone_number}}</a></p>
@@ -80,7 +80,7 @@
           {% if user.job == 'DAF' %}
           <div class="col-lg-4 col-sm-6 col-12"> 
             <img src={% if user.profil %} {{user.profil.url}} {% else %} {% static 'image/perso.png' %} {% endif %} class="profil">
-            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <h2>{{ user.first_name | title  }} {{ user.last_name |upper }}</h2>
             <p>Directeur Administratif et Financier</p>
             {% if user.leave == False %}
             <div class="nombre">
@@ -96,7 +96,7 @@
           {% if user.job == 'DT' %}
           <div class="col-lg-4 col-sm-6 col-12"> 
             <img src={% if user.profil %} {{user.profil.url}} {% else %} {% static 'image/perso.png' %} {% endif %} alt="" class="profil">
-            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <h2>{{ user.first_name | title  }} {{ user.last_name |upper }}</h2>
             <p>Directeur Technique</p>
             {% if user.leave == False %}
             <div class="nombre">
@@ -118,7 +118,7 @@
             <a href="info/{{user.id}}">
               <img src={% if user.profil %} {{user.profil.url}} {% else %} {% static 'image/perso.png' %} {% endif %} alt="" class="profil1">
             </a>
-            <h2 class="respon">{{ user.first_name }} {{ user.last_name }}</h2>
+            <h2 class="respon">{{ user.first_name | title  }} {{ user.last_name |upper }}</h2>
             <p>Ingénieur</p>
             {% if user.leave == False %}
             <div class="nombre">
@@ -138,7 +138,7 @@
             <a href="info/{{user.id}}">
               <img src={% if user.profil %} {{user.profil.url}} {% else %} {% static 'image/perso.png' %} {% endif %} alt="" class="profil1">
             </a>
-            <h2 class="respon">{{ user.first_name }} {{ user.last_name }}</h2>
+            <h2 class="respon">{{ user.first_name | title  | title }} {{ user.last_name |upper }}</h2>
             <p>Technicien</p>
             {% if user.leave == False %}
             <div class="nombre">
@@ -161,7 +161,7 @@
             <a href="info/{{user.id}}">
               <img src={% static 'image/perso.png' %} alt="" class="profil1">
             </a>
-            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <h2>{{ user.first_name | title  }} {{ user.last_name |upper }}</h2>
             <p>Commercial</p>
             {% if user.leave == False %}
             <div class="nombre">
